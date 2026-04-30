@@ -1,0 +1,90 @@
+# Règles de développement pour le portfolio Mike Useni
+
+## Stack Technique
+- Next.js 15 (App Router)
+- TypeScript (strict mode)
+- Tailwind CSS + shadcn/ui
+- tRPC + React Query
+- Prisma + PostgreSQL (Supabase)
+- Framer Motion
+
+## Conventions de Code
+
+### TypeScript
+- Toujours utiliser `type` pour les types simples
+- Utiliser `interface` pour les objets avec méthodes
+- Importer les types avec `import type`
+- Préférer les types stricts (pas de `any`)
+
+### Naming
+- Fichiers : `kebab-case.tsx`
+- Composants : `PascalCase`
+- Fonctions/variables : `camelCase`
+- Constantes : `UPPER_SNAKE_CASE`
+- Types : `PascalCase`
+
+### Composants React
+- Préférer les Server Components par défaut
+- Marquer 'use client' seulement si nécessaire
+- Extraire la logique dans des hooks customs
+- Props : interface avec nom explicite (ex: `ButtonProps`)
+
+### Styling
+- Utiliser Tailwind classes
+- Pas de styles inline sauf exceptions
+- Utiliser `cn()` pour combiner les classes
+- Suivre le design system (colors, spacing, etc.)
+
+### Import Order
+1. React/Next.js
+2. External libraries
+3. Internal components
+4. Utils/lib
+5. Types
+6. Styles
+
+### Git
+- Commits en anglais, messages clairs
+- Branches : `feature/`, `fix/`, `refactor/`
+- PR avec description détaillée
+
+## Bonnes Pratiques
+
+### Performance
+- Lazy loading pour les composants lourds
+- Optimiser les images avec next/image
+- Mémoïser les calculs coûteux
+- Éviter les re-renders inutiles
+
+### Accessibilité
+- Balises sémantiques HTML
+- Labels pour les inputs
+- Alt text pour les images
+- Keyboard navigation
+
+### Sécurité
+- Valider toutes les entrées (Zod)
+- Pas de secrets côté client
+- Sanitize les données avant affichage
+- HTTPS partout en production
+
+### SEO
+- Métadonnées dans chaque page
+- Sitemap généré automatiquement
+- URLs propres et descriptives
+- Structured data (JSON-LD)
+
+## À Éviter
+- ❌ Pas de `any` en TypeScript
+- ❌ Pas de console.log en production
+- ❌ Pas de styles globaux (sauf globals.css)
+- ❌ Pas de props drilling (utiliser Context si nécessaire)
+- ❌ Pas de mutations directes d'état
+- ❌ Pas de logique métier dans les composants UI
+
+## Priorités
+1. Type-safety
+2. Performance
+3. Accessibilité
+4. Maintenabilité
+5. UX

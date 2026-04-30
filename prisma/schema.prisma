@@ -1,0 +1,94 @@
+// This is your Prisma schema file
+// Learn more: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id           String    @id @default(cuid())
+  title        String
+  titleFr      String    @map("title_fr")
+  slug         String    @unique
+  description  String
+  descriptionFr String   @map("description_fr") @db.Text
+  content      String    @db.Text
+  contentFr    String    @map("content_fr") @db.Text
+  technologies String[]
+  imageUrl     String?   @map("image_url")
+  demoUrl      String?   @map("demo_url")
+  githubUrl    String?   @map("github_url")
+  featured     Boolean   @default(false)
+  order        Int       @default(0)
+  publishedAt  DateTime? @map("published_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  @@map("projects")
+}
+
+model BlogPost {
+  id           String    @id @default(cuid())
+  title        String
+  titleFr      String    @map("title_fr")
+  slug         String    @unique
+  excerpt      String
+  excerptFr    String    @map("excerpt_fr")
+  content      String    @db.Text
+  contentFr    String    @map("content_fr") @db.Text
+  coverImage   String?   @map("cover_image")
+  tags         String[]
+  readingTime  Int       @default(5) @map("reading_time")
+  publishedAt  DateTime? @map("published_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  @@map("blog_posts")
+}
+
+model Experience {
+  id           String    @id @default(cuid())
+  company      String
+  role         String
+  roleFr       String    @map("role_fr")
+  description  String    @db.Text
+  descriptionFr String   @map("description_fr") @db.Text
+  technologies String[]
+  startDate    DateTime  @map("start_date")
+  endDate      DateTime? @map("end_date")
+  location     String?
+  order        Int       @default(0)
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  @@map("experiences")
+}
+
+model Skill {
+  id       String   @id @default(cuid())
+  name     String
+  category String
+  level    Int      @default(3)
+  order    Int      @default(0)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("skills")
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("contact_messages")
+}
