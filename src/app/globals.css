@@ -22,8 +22,15 @@
   --color-text-primary: var(--color-text-primary);
   --color-text-body: var(--color-text-body);
   --color-text-muted: var(--color-text-muted);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-size-hero: clamp(7rem, 8vw, 9rem);
+  --font-size-section: clamp(2rem, 2.25vw, 2.5rem);
+  --font-size-card-title: 1.2rem;
+  --font-size-body: 1rem;
+  --font-size-label: 0.72rem;
+  --font-size-tag: 0.73rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,5 +51,36 @@
 body {
   background: var(--color-bg-base);
   color: var(--color-text-body);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
+}
+
+/* Typography utilities */
+.type-hero {
+  font-size: var(--font-size-hero);
+  font-family: var(--font-display), sans-serif;
+}
+
+.type-section {
+  font-size: var(--font-size-section);
+  font-family: var(--font-display), sans-serif;
+}
+
+.type-card-title {
+  font-size: var(--font-size-card-title);
+  font-family: var(--font-display), sans-serif;
+}
+
+.type-body {
+  font-size: var(--font-size-body);
+  font-family: var(--font-body), sans-serif;
+}
+
+.type-label {
+  font-size: var(--font-size-label);
+  font-family: var(--font-body), sans-serif;
+}
+
+.type-tag {
+  font-size: var(--font-size-tag);
+  font-family: var(--font-mono), monospace;
 }
