@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  /* LIGHT MODE COLORS */
+  --color-bg-base: #F7F5F0;
+  --color-bg-surface: #EBEBD5;
+  --color-bg-hover: #DEDDD4;
+  --color-border: #C8C4BC;
+  --color-card: #FFFFFF;
+  
+  --color-text-primary: #1A1B14;
+  --color-text-body: #3D3A33;
+  --color-text-muted: #5E5A53;
+}
+
+@theme inline {
+  --color-bg-base: var(--color-bg-base);
+  --color-bg-surface: var(--color-bg-surface);
+  --color-bg-hover: var(--color-bg-hover);
+  --color-border: var(--color-border);
+  --color-card: var(--color-card);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-body: var(--color-text-body);
+  --color-text-muted: var(--color-text-muted);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* DARK MODE COLORS */
+    --color-bg-base: #111010;
+    --color-bg-surface: #1C1B1A;
+    --color-bg-hover: #252422;
+    --color-border: #3A3733;
+    --color-card: #1C1B1A;
+    
+    --color-text-primary: #F2EFE9;
+    --color-text-body: #CBC3B8;
+    --color-text-muted: #9C968E;
+  }
+}
+
+body {
+  background: var(--color-bg-base);
+  color: var(--color-text-body);
+  font-family: Arial, Helvetica, sans-serif;
+}
