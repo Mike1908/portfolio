@@ -1,0 +1,77 @@
+{
+  "variables": {
+    "COMPONENTS_DIR": "src/components",
+    "APP_DIR": "src/app",
+    "TYPES_FILE": "src/types/index.ts"
+  },
+  "patterns": [
+    {
+      "id": "component-created",
+      "onCreateFile": "src/components/**/*.{tsx,ts}",
+      "notify": [
+        {
+          "file": "src/components/index.ts",
+          "description": "📦 Ajouter l'export pour {{TRIGGER_NAME}}"
+        }
+      ],
+      "description": "🆕 Nouveau composant {{TRIGGER_NAME}} créé",
+      "showInlineHint": true
+    },
+    {
+      "id": "component-modified",
+      "onChange": "src/components/**/*.tsx",
+      "notify": [
+        {
+          "file": "src/components/index.ts",
+          "description": "📦 Vérifier que {{TRIGGER_NAME}} est exporté"
+        }
+      ],
+      "description": "🔧 Composant {{TRIGGER_NAME}} modifié",
+      "showInlineHint": false
+    },
+    {
+      "id": "layout-modified",
+      "onChange": "src/app/layout.tsx",
+      "notify": [
+        {
+          "file": "src/app/globals.css",
+          "description": "🎨 Vérifier les variables CSS globales"
+        },
+        {
+          "file": "tailwind.config.ts",
+          "description": "⚙️ Synchroniser la configuration Tailwind"
+        }
+      ],
+      "description": "📐 Layout modifié - vérifier les styles",
+      "showInlineHint": true
+    },
+    {
+      "id": "globals-css-modified",
+      "onChange": "src/app/globals.css",
+      "notify": [
+        {
+          "file": "tailwind.config.ts",
+          "description": "🔄 Synchroniser les variables CSS avec Tailwind"
+        }
+      ],
+      "description": "🎨 Variables CSS globales modifiées",
+      "showInlineHint": true
+    },
+    {
+      "id": "tailwind-config-modified",
+      "onChange": "tailwind.config.ts",
+      "notify": [
+        {
+          "file": "src/app/globals.css",
+          "description": "🎨 Vérifier que les variables CSS correspondent"
+        },
+        {
+          "commands": ["pnpm run build"],
+          "description": "🔨 Tester le build après modification de config"
+        }
+      ],
+      "description": "⚙️ Configuration Tailwind modifiée",
+      "showInlineHint": true
+    }
+  ]
+}
