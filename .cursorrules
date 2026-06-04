@@ -1,0 +1,256 @@
+<!-- ModCodePattern:generated -->
+
+# ModCodePattern — AI Agent Instructions
+
+## What is ModCodePattern?
+
+ModCodePattern is a VS Code extension with multiple purposes:
+
+- **Consistency**: watches files and creates todo tasks when related files need updating
+- **Guided workflows**: chains patterns step-by-step to onboard developers or automate processes
+- **Manual commands**: creates on-demand task lists (`onManual`) triggered via the command palette
+- **Developer hints**: displays inline reminders directly inside relevant files (`showInlineHint`)
+
+---
+
+## Your responsibility as an AI agent
+
+**IMPORTANT**: Every time you create or modify files in this project, you MUST
+update `.mod-patterns.json` to add or adjust the corresponding patterns.
+
+Think beyond simple file-watching. Consider:
+
+- `onChange` / `onCreateFile` for reactive consistency reminders
+- `onStart: true` for project-wide onboarding or startup checklists
+- `onManual` to create "magic buttons" for recurring workflows (deploy, test suites, maintenance)
+- `triggerNext` to chain patterns into step-by-step guided sequences
+- `showInlineHint` to highlight files of interest directly in the editor
+
+---
+
+## Before generating any pattern — Analyze the project first
+
+Before writing a single pattern, you MUST:
+
+1. **List all directories** at the project root to understand the structure
+2. **Read `package.json`** to identify the framework (React, Vue, Next.js, Angular…) and tools
+3. **Note naming conventions** already in use (PascalCase components? kebab-case files?)
+4. **Check if `.mod-patterns.json` already exists** — if so, EXTEND it, never replace it
+5. **Identify which adaptive variables apply** to this specific project (see list below)
+
+Only then generate patterns that reflect what actually exists in the codebase — not generic assumptions.
+
+---
+
+## Complete Pattern Syntax Reference
+
+### File structure
+
+All patterns must live inside a `"patterns"` array in `.mod-patterns.json` at the project root:
+
+```json
+{
+  "variables": {},
+  "imports": [],
+  "patterns": []
+}
+```
+
+---
+
+### Available triggers — use only ONE per pattern
+
+| Trigger                    | Description                                    |
+| -------------------------- | ---------------------------------------------- |
+| `"onChange": "glob"`       | File modified/edited                           |
+| `"onCreateFile": "glob"`   | New file created                               |
+| `"onDeleteFile": "glob"`   | File deleted                                   |
+| `"onCreateFolder": "glob"` | Folder created                                 |
+| `"onDeleteFolder": "glob"` | Folder deleted                                 |
+| `"onStart": true`          | Manual or startup trigger                      |
+| `"onManual": "commandId"`  | Command palette trigger (needs `manualTitle`)  |
+| `"onTrigger": true`        | Activated by another pattern via `triggerNext` |
+
+---
+
+### Notify types — what to remind the developer to do
+
+```json
+{ "file": "path/to/file.ts", "description": "📦 Update exports" }
+{ "folder": "tests/components/", "description": "🧪 Create tests here" }
+{ "commands": ["npm test", "npm run lint"], "description": "🚀 Run checks" }
+{ "url": "https://docs.example.com", "description": "📚 Read the docs" }
+{ "externalFile": "/absolute/path/to/file.md", "description": "📋 Read specs" }
+{ "application": "figma://file/abc123", "description": "🎨 Check design" }
+```
+
+---
+
+### Adaptive variables — auto-detected from project structure
+
+**Project-level variables**
+
+| Variable             | Resolves to (examples)         |
+| -------------------- | ------------------------------ |
+| `{{SRC_DIR}}`        | `src`, `lib`, `app`            |
+| `{{COMPONENTS_DIR}}` | `src/components`, `app/ui`     |
+| `{{HOOKS_DIR}}`      | `src/hooks`, `src/composables` |
+| `{{API_DIR}}`        | `src/api`, `src/services`      |
+| `{{TESTS_DIR}}`      | `tests`, `__tests__`           |
+| `{{DOCS_DIR}}`       | `docs`, `documentation`        |
+| `{{CONFIG_DIR}}`     | `config`, `configs`            |
+| `{{CONFIG_FILE}}`    | `config/index.ts`              |
+| `{{TYPES_FILE}}`     | `src/types/index.ts`           |
+
+**Runtime variables — available when a trigger fires**
+
+| Variable           | Description                   | Example                     |
+| ------------------ | ----------------------------- | --------------------------- |
+| `{{TRIGGER_PATH}}` | Full path of the trigger file | `src/components/Button.tsx` |
+| `{{TRIGGER_FILE}}` | Filename with extension       | `Button.tsx`                |
+| `{{TRIGGER_NAME}}` | Filename without extension    | `Button`                    |
+| `{{TRIGGER_DIR}}`  | Directory of the trigger file | `src/components`            |
+| `{{TRIGGER_TYPE}}` | Event type                    | `onCreateFile`              |
+
+---
+
+### Chaining patterns — `triggerNext` + `onTrigger`
+
+Use `id` + `triggerNext` to build automatic multi-step workflows:
+
+```json
+{
+  "patterns": [
+    {
+      "id": "component-created",
+      "onCreateFile": "{{COMPONENTS_DIR}}/**/*.tsx",
+      "notify": [
+        {
+          "file": "{{COMPONENTS_DIR}}/index.ts",
+          "description": "📦 Add export for {{TRIGGER_NAME}}"
+        }
+      ],
+      "description": "🆕 New component → update exports",
+      "triggerNext": "component-exported"
+    },
+    {
+      "id": "component-exported",
+      "onTrigger": true,
+      "notify": [
+        {
+          "folder": "src/stories/",
+          "description": "📖 Create Storybook story for {{TRIGGER_NAME}}"
+        }
+      ],
+      "description": "📦 Export added → create story",
+      "triggerNext": "story-created"
+    },
+    {
+      "id": "story-created",
+      "onTrigger": true,
+      "notify": [
+        {
+          "commands": ["pnpm run test:stories"],
+          "description": "🧪 Run story tests"
+        }
+      ],
+      "description": "📖 Story created → run tests"
+    }
+  ]
+}
+```
+
+**Rule**: if 2+ patterns share the same trigger on the same glob, always assign unique `id`s or only the last one will fire.
+
+---
+
+### Other useful properties
+
+```json
+"enabled": false          // Temporarily disable a pattern without deleting it
+"showInlineHint": true    // Display reminder directly inside the trigger file (default: true)
+"manualTitle": "🚀 Deploy to Production"  // Required when using onManual
+"description": { "fr": "...", "en": "..." }  // Multilingual support
+```
+
+---
+
+### Modular configuration (Premium)
+
+Split large pattern sets into thematic sub-files:
+
+```json
+{
+  "imports": [
+    ".mod-patterns/react.json",
+    ".mod-patterns/api.json",
+    ".mod-patterns/testing.json"
+  ],
+  "patterns": []
+}
+```
+
+Sub-files only need a `"patterns"` array — same schema applies.
+
+---
+
+## Minimal real-world example
+
+```json
+{
+  "patterns": [
+    {
+      "id": "new-component",
+      "onCreateFile": "{{COMPONENTS_DIR}}/**/*.tsx",
+      "notify": [
+        {
+          "file": "{{COMPONENTS_DIR}}/index.ts",
+          "description": "📦 Add export for {{TRIGGER_NAME}}"
+        },
+        {
+          "file": "{{TESTS_DIR}}/{{TRIGGER_NAME}}.test.tsx",
+          "description": "🧪 Create test file"
+        }
+      ],
+      "description": "🆕 New component {{TRIGGER_NAME}} created",
+      "showInlineHint": true
+    },
+    {
+      "id": "api-modified",
+      "onChange": "{{API_DIR}}/**/*.ts",
+      "notify": [
+        { "file": "{{TYPES_FILE}}", "description": "📘 Update API types" },
+        { "folder": "{{TESTS_DIR}}/api/", "description": "🧪 Update API tests" }
+      ],
+      "description": "🔧 API file modified — sync types and tests"
+    },
+    {
+      "onManual": "deployProduction",
+      "manualTitle": "🚀 Deploy to Production",
+      "notify": [
+        {
+          "commands": ["npm run build", "npm run test"],
+          "description": "🔧 Build and test"
+        },
+        { "file": "CHANGELOG.md", "description": "📋 Update changelog" }
+      ],
+      "description": "Full deployment workflow"
+    }
+  ]
+}
+```
+
+---
+
+## If you need more context
+
+If the above syntax reference is insufficient for a specific use case, you can:
+
+1. **Read the full documentation** at: https://www.modcodepattern.com/docs
+2. **Study real-world pattern examples** at: https://github.com/modcodepattern-saas/patterns-exemple
+   — Navigate every subdirectory and read every `.json` file to understand advanced techniques
+   such as `contentFilter`, glob exclusions like `**/!(*.spec|*.stories).tsx`,
+   conditional bash commands, and Premium Git variables.
+
+> Only reach for external resources if the built-in reference above doesn't cover your case.
+> Prefer generating patterns from what you already know rather than blocking on a web lookup.
