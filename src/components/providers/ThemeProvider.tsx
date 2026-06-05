@@ -7,7 +7,7 @@ export interface ThemeProviderProps {
   children: ReactNode;
 }
 
-export function ThemeProvider({ children }: ThemeProviderProps) {
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   return (
     <NextThemesProvider
       attribute="data-theme"
@@ -18,4 +18,4 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       {children}
     </NextThemesProvider>
   );
-}
+};

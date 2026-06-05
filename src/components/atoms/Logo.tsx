@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export interface LogoProps {
   readonly text: string;
@@ -6,13 +7,16 @@ export interface LogoProps {
   readonly className?: string;
 }
 
-export function Logo({ text, href = "/", className = "" }: LogoProps) {
+export const Logo = ({ text, href = "/", className }: LogoProps) => {
   return (
     <Link
       href={href}
-      className={`font-display text-xl font-bold tracking-tight text-primary transition-colors hover:text-body focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${className}`.trim()}
+      className={cn(
+        "font-display text-xl font-bold tracking-tight text-primary transition-colors hover:text-body focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+        className
+      )}
     >
       {text}
     </Link>
   );
-}
+};

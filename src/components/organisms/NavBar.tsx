@@ -5,12 +5,12 @@ import { NavLink as NavLinkAtom, type NavLinkProps } from "../atoms/NavLink";
 import { ThemeToggle } from "../molecules/ThemeToggle";
 
 export interface NavBarProps {
-  links: NavLinkProps[];
-  logoText: string;
-  logoHref?: string;
+  readonly links: NavLinkProps[];
+  readonly logoText: string;
+  readonly logoHref?: string;
 }
 
-export function NavBar({ links, logoText, logoHref = "/" }: NavBarProps) {
+export const NavBar = ({ links, logoText, logoHref = "/" }: NavBarProps) => {
   return (
     <>
       {/* Skip link pour l'accessibilité */}
@@ -62,4 +62,4 @@ export function NavBar({ links, logoText, logoHref = "/" }: NavBarProps) {
       <div className="h-[64px]" aria-hidden="true" />
     </>
   );
-}
+};

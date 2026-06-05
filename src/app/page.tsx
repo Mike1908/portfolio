@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { NavBar } from "@/components";
+import { NavBar, HeroSection } from "@/components";
 
 const navLinks = [
   { label: "À propos", href: "#about" },
@@ -8,12 +8,25 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+const badges = [
+  { label: "Développeur Full Stack", variant: "primary" as const },
+  { label: "React & Next.js", variant: "secondary" as const },
+  { label: "TypeScript", variant: "accent" as const },
+];
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center font-sans">
+    <div className="flex flex-col flex-1 font-sans">
       <NavBar links={navLinks} logoText="MU" />
       
-      <main id="main-content" className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 sm:items-start">
+      <HeroSection
+        name="Mike Useni"
+        tagline="Créateur d'expériences web modernes et performantes. Passionné par le design système et l'architecture logicielle."
+        badges={badges}
+        scrollTarget="#content"
+      />
+      
+      <main id="content" className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 sm:items-start">
         <Image
           className="dark:invert"
           src="/next.svg"
