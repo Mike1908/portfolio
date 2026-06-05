@@ -2,17 +2,17 @@
 
 import { Badge, ScrollHint, BackgroundGrid } from "../atoms";
 
-export interface BadgeData {
+export type BadgeData = {
   readonly label: string;
   readonly variant?: "primary" | "secondary" | "accent";
-}
+};
 
-export interface HeroSectionProps {
+export type HeroSectionProps = {
   readonly name: string;
   readonly tagline: string;
   readonly badges: BadgeData[];
   readonly scrollTarget?: string;
-}
+};
 
 export const HeroSection = ({
   scrollTarget = "#content",

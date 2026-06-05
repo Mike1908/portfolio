@@ -4,11 +4,11 @@ import { Logo } from "../atoms/Logo";
 import { NavLink as NavLinkAtom, type NavLinkProps } from "../atoms/NavLink";
 import { ThemeToggle } from "../molecules/ThemeToggle";
 
-export interface NavBarProps {
+export type NavBarProps = {
   readonly links: NavLinkProps[];
   readonly logoText: string;
   readonly logoHref?: string;
-}
+};
 
 export const NavBar = ({ links, logoText, logoHref = "/" }: NavBarProps) => {
   return (

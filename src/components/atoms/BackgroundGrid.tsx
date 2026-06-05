@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 
-export interface BackgroundGridProps {
+export type BackgroundGridProps = {
   readonly opacity?: number;
   readonly className?: string;
-}
+};
 
 export const BackgroundGrid = ({
   opacity = 0.5,

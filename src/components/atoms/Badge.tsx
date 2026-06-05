@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
 
-export interface BadgeProps {
+export type BadgeProps = {
   readonly label: string;
   readonly variant?: "primary" | "secondary" | "accent";
   readonly className?: string;
-}
+};
 
 export const Badge = ({
   label,
@@ -22,7 +22,7 @@ export const Badge = ({
       className={cn(
         "inline-flex items-center px-3 py-1 rounded-badge border text-sm font-medium transition-colors",
         variantStyles[variant],
-        className
+        className,
       )}
     >
       {label}

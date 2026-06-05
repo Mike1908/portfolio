@@ -1,11 +1,11 @@
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export interface ScrollHintProps {
+export type ScrollHintProps = {
   readonly targetId?: string;
   readonly label?: string;
   readonly className?: string;
-}
+};
 
 export const ScrollHint = ({
   targetId = "#content",
