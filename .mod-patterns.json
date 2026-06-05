@@ -1,20 +1,76 @@
 {
   "variables": {
     "COMPONENTS_DIR": "src/components",
+    "ATOMS_DIR": "src/components/atoms",
+    "MOLECULES_DIR": "src/components/molecules",
+    "ORGANISMS_DIR": "src/components/organisms",
+    "PROVIDERS_DIR": "src/components/providers",
     "APP_DIR": "src/app",
     "TYPES_FILE": "src/types/index.ts"
   },
   "patterns": [
     {
-      "id": "component-created",
-      "onCreateFile": "src/components/**/*.{tsx,ts}",
+      "id": "atom-created",
+      "onCreateFile": "src/components/atoms/**/*.{tsx,ts}",
       "notify": [
         {
+          "file": "src/components/atoms/index.ts",
+          "description": "📦 Ajouter l'export pour l'atom {{TRIGGER_NAME}}"
+        },
+        {
           "file": "src/components/index.ts",
-          "description": "📦 Ajouter l'export pour {{TRIGGER_NAME}}"
+          "description": "📦 Exposer l'atom {{TRIGGER_NAME}} dans l'export principal"
         }
       ],
-      "description": "🆕 Nouveau composant {{TRIGGER_NAME}} créé",
+      "description": "⚛️ Nouvel atom {{TRIGGER_NAME}} créé",
+      "showInlineHint": true
+    },
+    {
+      "id": "molecule-created",
+      "onCreateFile": "src/components/molecules/**/*.{tsx,ts}",
+      "notify": [
+        {
+          "file": "src/components/molecules/index.ts",
+          "description": "📦 Ajouter l'export pour la molecule {{TRIGGER_NAME}}"
+        },
+        {
+          "file": "src/components/index.ts",
+          "description": "📦 Exposer la molecule {{TRIGGER_NAME}} dans l'export principal"
+        }
+      ],
+      "description": "🧬 Nouvelle molecule {{TRIGGER_NAME}} créée",
+      "showInlineHint": true
+    },
+    {
+      "id": "organism-created",
+      "onCreateFile": "src/components/organisms/**/*.{tsx,ts}",
+      "notify": [
+        {
+          "file": "src/components/organisms/index.ts",
+          "description": "📦 Ajouter l'export pour l'organism {{TRIGGER_NAME}}"
+        },
+        {
+          "file": "src/components/index.ts",
+          "description": "📦 Exposer l'organism {{TRIGGER_NAME}} dans l'export principal"
+        }
+      ],
+      "description": "🦠 Nouvel organism {{TRIGGER_NAME}} créé",
+      "showInlineHint": true
+    },
+    {
+      "id": "provider-created",
+      "onCreateFile": "src/components/providers/**/*.{tsx,ts}",
+      "notify": [
+        {
+          "file": "src/components/providers/index.ts",
+          "description": "📦 Ajouter l'export pour le provider {{TRIGGER_NAME}}"
+        },
+        {
+          "file": "src/components/index.ts",
+          "description": "📦 Exposer le provider {{TRIGGER_NAME}} dans l'export principal"
+        }
+      ],
+      "description": "🔌 Nouveau provider {{TRIGGER_NAME}} créé",
       "showInlineHint": true
     },
     {
@@ -23,7 +79,7 @@
       "notify": [
         {
           "file": "src/components/index.ts",
-          "description": "📦 Vérifier que {{TRIGGER_NAME}} est exporté"
+          "description": "📦 Vérifier que {{TRIGGER_NAME}} est exporté dans la hiérarchie"
         }
       ],
       "description": "🔧 Composant {{TRIGGER_NAME}} modifié",

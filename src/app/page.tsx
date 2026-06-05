@@ -1,13 +1,19 @@
 import Image from "next/image";
-import { ThemeToggle } from "@/components";
+import { NavBar } from "@/components";
+
+const navLinks = [
+  { label: "À propos", href: "#about" },
+  { label: "Projets", href: "#projects" },
+  { label: "Compétences", href: "#skills" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle />
-      </div>
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="flex flex-col flex-1 items-center justify-center font-sans">
+      <NavBar links={navLinks} logoText="MU" />
+      
+      <main id="main-content" className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 sm:items-start">
         <Image
           className="dark:invert"
           src="/next.svg"
