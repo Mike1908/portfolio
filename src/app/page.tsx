@@ -1,4 +1,4 @@
-import { NavBar, HeroSection, SectionReveal, AboutSection, ExperienceSection, ProjectsSection } from "@/components";
+import { NavBar, HeroSection, SectionReveal, AboutSection, ExperienceSection, ProjectsSection, SkillsSection } from "@/components";
 
 const navLinks = [
   { label: "À propos", href: "#about" },
@@ -87,6 +87,53 @@ const projects = [
   },
 ];
 
+const skillGroups = [
+  {
+    label: "Front-End",
+    skills: [
+      { label: "React", featured: true },
+      { label: "Next.js", featured: true },
+      { label: "TypeScript", featured: true },
+      { label: "JavaScript", featured: false },
+      { label: "HTML/CSS", featured: false },
+      { label: "Tailwind CSS", featured: true },
+      { label: "Framer Motion", featured: false },
+    ],
+  },
+  {
+    label: "Back-End",
+    skills: [
+      { label: "Node.js", featured: true },
+      { label: "Express", featured: false },
+      { label: "PostgreSQL", featured: true },
+      { label: "MongoDB", featured: false },
+      { label: "GraphQL", featured: false },
+      { label: "REST APIs", featured: true },
+    ],
+  },
+  {
+    label: "Outils & DevOps",
+    skills: [
+      { label: "Git", featured: true },
+      { label: "Docker", featured: false },
+      { label: "Vercel", featured: false },
+      { label: "CI/CD", featured: false },
+      { label: "Jest", featured: false },
+      { label: "Webpack", featured: false },
+    ],
+  },
+  {
+    label: "Design & UX",
+    skills: [
+      { label: "Figma", featured: true },
+      { label: "Design Systems", featured: true },
+      { label: "Responsive Design", featured: true },
+      { label: "Accessibility", featured: false },
+      { label: "Animation", featured: false },
+    ],
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 font-sans">
@@ -119,6 +166,13 @@ export default function Home() {
         title="Projets sélectionnés"
         subtitle="Une collection de mes réalisations récentes"
         projects={projects}
+      />
+
+      {/* Section Compétences */}
+      <SkillsSection
+        title="Compétences techniques"
+        subtitle="Technologies et outils que je maîtrise"
+        groups={skillGroups}
       />
       
       <main id="content" className="flex flex-1 w-full flex-col items-center py-32 px-6 sm:px-16">

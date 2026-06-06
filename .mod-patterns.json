@@ -38,10 +38,6 @@
       "onCreateFile": "src/components/organisms/**/*.{tsx,ts}",
       "notify": [
         {
-          "file": "src/components/organisms/index.ts",
-          "description": "📦 Ajouter l'export pour l'organism {{TRIGGER_NAME}}"
-        },
-        {
           "file": "src/components/index.ts",
           "description": "📦 Exposer l'organism {{TRIGGER_NAME}} dans l'export principal"
         }
