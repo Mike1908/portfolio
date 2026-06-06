@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge, ScrollHint, BackgroundGrid } from "../atoms";
+import { Badge, ScrollHint, BackgroundGrid } from "@/components";
 
 export type BadgeData = {
   readonly label: string;
