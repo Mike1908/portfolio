@@ -7,6 +7,7 @@ export { BackgroundGrid, type BackgroundGridProps } from './atoms/BackgroundGrid
 
 // Molecules - Combinaisons d'atomes
 export { ThemeToggle } from './molecules/ThemeToggle';
+export { CustomCursor, type CustomCursorProps } from './molecules/CustomCursor';
 
 // Organisms - Combinaisons complexes
 export { NavBar, type NavBarProps } from './organisms/NavBar';

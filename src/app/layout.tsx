@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Syne, DM_Sans, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/providers";
+import { CustomCursor } from "@/components";
 import "./globals.css";
 
 const syneDisplay = Syne({
@@ -37,6 +38,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
+        <CustomCursor />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

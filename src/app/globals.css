@@ -102,6 +102,27 @@ body {
   font-family: var(--font-body), sans-serif;
 }
 
+/* Cache le curseur par défaut sur desktop */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Restore le curseur sur mobile/tablette */
+@media (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Restore le curseur si prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    cursor: auto !important;
+  }
+}
+
 /* Typography utilities */
 .type-hero {
   font-size: var(--font-size-hero);
