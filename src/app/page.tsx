@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { NavBar, HeroSection, SectionReveal, AboutSection } from "@/components";
+import { NavBar, HeroSection, SectionReveal, AboutSection, ExperienceSection } from "@/components";
 
 const navLinks = [
   { label: "À propos", href: "#about" },
@@ -21,6 +20,30 @@ const aboutStats = [
   { label: "Tasses de café", value: "∞" },
 ];
 
+const experiences = [
+  {
+    company: "TechCorp Innovation",
+    role: "Lead Developer Front-End",
+    period: "2022 - Présent",
+    description: "Direction technique d'une équipe de 5 développeurs sur la refonte complète d'une plateforme SaaS. Mise en place d'un design system et migration vers Next.js 14 avec amélioration des performances de 40%.",
+    tags: ["React", "Next.js", "TypeScript", "Tailwind", "Framer Motion"],
+  },
+  {
+    company: "Digital Solutions Inc.",
+    role: "Développeur Full Stack",
+    period: "2020 - 2022",
+    description: "Développement d'applications web modernes pour des clients internationaux. Création d'APIs REST et GraphQL, intégration de solutions de paiement et optimisation SEO.",
+    tags: ["Node.js", "React", "PostgreSQL", "GraphQL", "Docker"],
+  },
+  {
+    company: "Startup Labs",
+    role: "Développeur Front-End",
+    period: "2019 - 2020",
+    description: "Développement d'interfaces utilisateur réactives et accessibles pour des startups en phase de croissance. Collaboration étroite avec les designers pour implémenter des expériences utilisateur optimales.",
+    tags: ["React", "JavaScript", "SASS", "Redux", "Jest"],
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 font-sans">
@@ -39,6 +62,13 @@ export default function Home() {
       <AboutSection
         bio="Je suis un <strong>développeur passionné</strong> par la création d'expériences web exceptionnelles. Spécialisé en <strong>React et Next.js</strong>, je combine design moderne et architecture solide pour créer des applications performantes et scalables. Mon approche met l'accent sur <strong>l'expérience utilisateur</strong> et les meilleures pratiques de développement."
         stats={aboutStats}
+      />
+
+      {/* Section Expérience */}
+      <ExperienceSection
+        title="Expérience professionnelle"
+        subtitle="Mon parcours de développeur à travers différentes entreprises"
+        experiences={experiences}
       />
       
       <main id="content" className="flex flex-1 w-full flex-col items-center py-32 px-6 sm:px-16">

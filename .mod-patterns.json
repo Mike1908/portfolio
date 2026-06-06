@@ -14,10 +14,6 @@
       "onCreateFile": "src/components/atoms/**/*.{tsx,ts}",
       "notify": [
         {
-          "file": "src/components/atoms/index.ts",
-          "description": "📦 Ajouter l'export pour l'atom {{TRIGGER_NAME}}"
-        },
-        {
           "file": "src/components/index.ts",
           "description": "📦 Exposer l'atom {{TRIGGER_NAME}} dans l'export principal"
         }
@@ -29,10 +25,6 @@
       "id": "molecule-created",
       "onCreateFile": "src/components/molecules/**/*.{tsx,ts}",
       "notify": [
-        {
-          "file": "src/components/molecules/index.ts",
-          "description": "📦 Ajouter l'export pour la molecule {{TRIGGER_NAME}}"
-        },
         {
           "file": "src/components/index.ts",
           "description": "📦 Exposer la molecule {{TRIGGER_NAME}} dans l'export principal"
