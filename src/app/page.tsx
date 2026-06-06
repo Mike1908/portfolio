@@ -1,4 +1,4 @@
-import { NavBar, HeroSection, SectionReveal, AboutSection, ExperienceSection } from "@/components";
+import { NavBar, HeroSection, SectionReveal, AboutSection, ExperienceSection, ProjectsSection } from "@/components";
 
 const navLinks = [
   { label: "À propos", href: "#about" },
@@ -44,6 +44,49 @@ const experiences = [
   },
 ];
 
+const projects = [
+  {
+    number: "01",
+    title: "E-Commerce Platform",
+    description: "Plateforme de commerce en ligne complète avec gestion des stocks, paiements et tableau de bord administrateur.",
+    stack: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
+    url: "https://example.com",
+  },
+  {
+    number: "02",
+    title: "Dashboard Analytics",
+    description: "Interface de visualisation de données en temps réel avec graphiques interactifs et exports personnalisés.",
+    stack: ["React", "D3.js", "Node.js", "MongoDB"],
+    url: "https://example.com",
+  },
+  {
+    number: "03",
+    title: "Design System",
+    description: "Système de design complet avec composants réutilisables, documentation interactive et thème personnalisable.",
+    stack: ["React", "Storybook", "TypeScript", "CSS-in-JS"],
+  },
+  {
+    number: "04",
+    title: "Mobile App",
+    description: "Application mobile cross-platform avec authentification, notifications push et synchronisation offline.",
+    stack: ["React Native", "Firebase", "Redux", "TypeScript"],
+    url: "https://example.com",
+  },
+  {
+    number: "05",
+    title: "CMS Headless",
+    description: "Système de gestion de contenu découplé avec API GraphQL et interface d'administration moderne.",
+    stack: ["Node.js", "GraphQL", "React", "PostgreSQL"],
+  },
+  {
+    number: "06",
+    title: "Portfolio Creator",
+    description: "Outil de création de portfolios avec templates personnalisables et déploiement automatique.",
+    stack: ["Next.js", "Vercel", "Tailwind", "MDX"],
+    url: "https://example.com",
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 font-sans">
@@ -69,6 +112,13 @@ export default function Home() {
         title="Expérience professionnelle"
         subtitle="Mon parcours de développeur à travers différentes entreprises"
         experiences={experiences}
+      />
+
+      {/* Section Projets */}
+      <ProjectsSection
+        title="Projets sélectionnés"
+        subtitle="Une collection de mes réalisations récentes"
+        projects={projects}
       />
       
       <main id="content" className="flex flex-1 w-full flex-col items-center py-32 px-6 sm:px-16">

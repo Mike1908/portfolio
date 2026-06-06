@@ -13,12 +13,14 @@ export { CustomCursor, type CustomCursorProps } from './molecules/CustomCursor';
 export { SectionReveal, type SectionRevealProps } from './molecules/SectionReveal';
 export { SectionHeader, type SectionHeaderProps } from './molecules/SectionHeader';
 export { ExperienceItem, type ExperienceItemProps, type Experience } from './molecules/ExperienceItem';
+export { ProjectCard, type ProjectCardProps, type Project } from './molecules/ProjectCard';
 
 // Organisms - Combinaisons complexes
 export { NavBar, type NavBarProps } from './organisms/NavBar';
 export { HeroSection, type HeroSectionProps, type BadgeData } from './organisms/HeroSection';
 export { AboutSection, type AboutSectionProps, type Stat } from './organisms/AboutSection';
 export { ExperienceSection, type ExperienceSectionProps } from './organisms/ExperienceSection';
+export { ProjectsSection, type ProjectsSectionProps } from './organisms/ProjectsSection';
 
 // Providers - Context providers
 export { ThemeProvider, type ThemeProviderProps } from './providers';
