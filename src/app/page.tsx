@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { NavBar, HeroSection, SectionReveal } from "@/components";
+import { NavBar, HeroSection, SectionReveal, AboutSection } from "@/components";
 
 const navLinks = [
   { label: "À propos", href: "#about" },
@@ -14,6 +14,13 @@ const badges = [
   { label: "TypeScript", variant: "accent" as const },
 ];
 
+const aboutStats = [
+  { label: "Années d'expérience", value: "5+" },
+  { label: "Projets réalisés", value: "50+" },
+  { label: "Clients satisfaits", value: "30+" },
+  { label: "Tasses de café", value: "∞" },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 font-sans">
@@ -26,6 +33,12 @@ export default function Home() {
         tagline="Créateur d'expériences web modernes et performantes. Passionné par le design système et l'architecture logicielle."
         badges={badges}
         scrollTarget="#content"
+      />
+
+      {/* Section À propos avec AboutSection */}
+      <AboutSection
+        bio="Je suis un <strong>développeur passionné</strong> par la création d'expériences web exceptionnelles. Spécialisé en <strong>React et Next.js</strong>, je combine design moderne et architecture solide pour créer des applications performantes et scalables. Mon approche met l'accent sur <strong>l'expérience utilisateur</strong> et les meilleures pratiques de développement."
+        stats={aboutStats}
       />
       
       <main id="content" className="flex flex-1 w-full flex-col items-center py-32 px-6 sm:px-16">
@@ -77,21 +90,21 @@ export default function Home() {
             </SectionReveal>
 
             <SectionReveal delay={0.1}>
-              <div className="p-6 rounded-lg border border-border bg-bg-subtle">
+              <div className="p-6 rounded-lg border border-border bg-bg-surface">
                 <h4 className="text-xl font-medium mb-2">Élément 1</h4>
                 <p className="text-body">Apparaît en premier avec 0.1s de délai</p>
               </div>
             </SectionReveal>
 
             <SectionReveal delay={0.2}>
-              <div className="p-6 rounded-lg border border-border bg-bg-subtle">
+              <div className="p-6 rounded-lg border border-border bg-bg-surface">
                 <h4 className="text-xl font-medium mb-2">Élément 2</h4>
                 <p className="text-body">Apparaît ensuite avec 0.2s de délai</p>
               </div>
             </SectionReveal>
 
             <SectionReveal delay={0.3}>
-              <div className="p-6 rounded-lg border border-border bg-bg-subtle">
+              <div className="p-6 rounded-lg border border-border bg-bg-surface">
                 <h4 className="text-xl font-medium mb-2">Élément 3</h4>
                 <p className="text-body">Apparaît en dernier avec 0.3s de délai</p>
               </div>

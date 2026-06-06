@@ -4,6 +4,7 @@ export { NavLink, type NavLinkProps } from './atoms/NavLink';
 export { Badge, type BadgeProps } from './atoms/Badge';
 export { ScrollHint, type ScrollHintProps } from './atoms/ScrollHint';
 export { BackgroundGrid, type BackgroundGridProps } from './atoms/BackgroundGrid';
+export { StatCard, type StatCardProps } from './atoms/StatCard';
 
 // Molecules - Combinaisons d'atomes
 export { ThemeToggle } from './molecules/ThemeToggle';
@@ -13,6 +14,7 @@ export { SectionReveal, type SectionRevealProps } from './molecules/SectionRevea
 // Organisms - Combinaisons complexes
 export { NavBar, type NavBarProps } from './organisms/NavBar';
 export { HeroSection, type HeroSectionProps, type BadgeData } from './organisms/HeroSection';
+export { AboutSection, type AboutSectionProps, type Stat } from './organisms/AboutSection';
 
 // Providers - Context providers
 export { ThemeProvider, type ThemeProviderProps } from './providers';
