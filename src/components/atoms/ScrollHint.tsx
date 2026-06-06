@@ -1,15 +1,16 @@
-import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export type ScrollHintProps = {
   readonly targetId?: string;
   readonly label?: string;
+  readonly variant?: "arrow" | "line";
   readonly className?: string;
 };
 
 export const ScrollHint = ({
   targetId = "#content",
-  label = "Défiler",
+  label = "Scroll",
+  variant = "line",
   className,
 }: ScrollHintProps) => {
   const handleClick = () => {
@@ -21,13 +22,15 @@ export const ScrollHint = ({
     <button
       onClick={handleClick}
       className={cn(
-        "group flex flex-col items-center gap-2 text-muted transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+        "group flex items-center gap-3 text-muted transition-colors hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
         className,
       )}
       aria-label={label}
     >
-      <span className="text-sm font-medium">{label}</span>
-      <ChevronDown className="h-5 w-5 animate-bounce" aria-hidden="true" />
+      {variant === "line" && (
+        <span className="block h-px w-8 bg-current transition-all group-hover:w-12" aria-hidden="true" />
+      )}
+      <span className="text-xs font-medium tracking-[0.2em] uppercase">{label}</span>
     </button>
   );
 };

@@ -20,7 +20,9 @@ export default function Home() {
       <NavBar links={navLinks} logoText="MU" />
       
       <HeroSection
-        name="Mike Useni"
+        firstName="Mike"
+        lastName="Useni"
+        eyebrow="Développeur Front-End & Full-Stack · Montréal, QC"
         tagline="Créateur d'expériences web modernes et performantes. Passionné par le design système et l'architecture logicielle."
         badges={badges}
         scrollTarget="#content"
