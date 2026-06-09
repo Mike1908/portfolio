@@ -1,4 +1,4 @@
-import { NavBar, HeroSection, SectionReveal, AboutSection, ExperienceSection, ProjectsSection, SkillsSection } from "@/components";
+import { NavBar, HeroSection, SectionReveal, AboutSection, ExperienceSection, ProjectsSection, SkillsSection, ContactSection } from "@/components";
 
 const navLinks = [
   { label: "À propos", href: "#about" },
@@ -134,6 +134,33 @@ const skillGroups = [
   },
 ];
 
+const contactLinks = [
+  {
+    label: "Email",
+    value: "mike@example.com",
+    href: "mailto:mike@example.com",
+    external: false,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/mikeuseni",
+    href: "https://github.com/mikeuseni",
+    external: true,
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/mikeuseni",
+    href: "https://linkedin.com/in/mikeuseni",
+    external: true,
+  },
+  {
+    label: "Twitter",
+    value: "@mikeuseni",
+    href: "https://twitter.com/mikeuseni",
+    external: true,
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 font-sans">
@@ -173,6 +200,13 @@ export default function Home() {
         title="Compétences techniques"
         subtitle="Technologies et outils que je maîtrise"
         groups={skillGroups}
+      />
+
+      {/* Section Contact */}
+      <ContactSection
+        heading="Restons en contact"
+        subtitle="N'hésitez pas à me contacter pour discuter de vos projets ou simplement échanger sur la technologie."
+        links={contactLinks}
       />
       
       <main id="content" className="flex flex-1 w-full flex-col items-center py-32 px-6 sm:px-16">

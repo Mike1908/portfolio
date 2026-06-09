@@ -10,15 +10,32 @@
   },
   "patterns": [
     {
+      "onManual": "rundev",
+      "manualTitle": "🚀 Run dev",
+      "notify": [
+        {
+          "commands": ["pnpm run dev"],
+          "description": "🚀 Run dev"
+        }
+      ],
+      "description": "🚀 Run dev"
+    },
+    {
       "id": "atom-created",
       "onCreateFile": "src/components/atoms/**/*.{tsx,ts}",
       "notify": [
         {
           "file": "src/components/index.ts",
-          "description": "📦 Exposer l'atom {{TRIGGER_NAME}} dans l'export principal"
+          "description": "📦 Export atom {{TRIGGER_NAME}} in main export"
+        },
+        {
+          "commands": [
+            "npx jest src/components/atoms/{{TRIGGER_NAME}}.test.tsx"
+          ],
+          "description": "🧪 Create test file"
         }
       ],
-      "description": "⚛️ Nouvel atom {{TRIGGER_NAME}} créé",
+      "description": "⚛️ New atom {{TRIGGER_NAME}} created",
       "showInlineHint": true
     },
     {
@@ -27,10 +44,10 @@
       "notify": [
         {
           "file": "src/components/index.ts",
-          "description": "📦 Exposer la molecule {{TRIGGER_NAME}} dans l'export principal"
+          "description": "📦 Export molecule {{TRIGGER_NAME}} in main export"
         }
       ],
-      "description": "🧬 Nouvelle molecule {{TRIGGER_NAME}} créée",
+      "description": "🧬 New molecule {{TRIGGER_NAME}} created",
       "showInlineHint": true
     },
     {
@@ -39,10 +56,10 @@
       "notify": [
         {
           "file": "src/components/index.ts",
-          "description": "📦 Exposer l'organism {{TRIGGER_NAME}} dans l'export principal"
+          "description": "📦 Export organism {{TRIGGER_NAME}} in main export"
         }
       ],
-      "description": "🦠 Nouvel organism {{TRIGGER_NAME}} créé",
+      "description": "🦠 New organism {{TRIGGER_NAME}} created",
       "showInlineHint": true
     },
     {
@@ -51,14 +68,14 @@
       "notify": [
         {
           "file": "src/components/providers/index.ts",
-          "description": "📦 Ajouter l'export pour le provider {{TRIGGER_NAME}}"
+          "description": "📦 Add export for provider {{TRIGGER_NAME}}"
         },
         {
           "file": "src/components/index.ts",
-          "description": "📦 Exposer le provider {{TRIGGER_NAME}} dans l'export principal"
+          "description": "📦 Export provider {{TRIGGER_NAME}} in main export"
         }
       ],
-      "description": "🔌 Nouveau provider {{TRIGGER_NAME}} créé",
+      "description": "🔌 New provider {{TRIGGER_NAME}} created",
       "showInlineHint": true
     },
     {
@@ -67,10 +84,10 @@
       "notify": [
         {
           "file": "src/components/index.ts",
-          "description": "📦 Vérifier que {{TRIGGER_NAME}} est exporté dans la hiérarchie"
+          "description": "📦 Verify that {{TRIGGER_NAME}} is exported in the hierarchy"
         }
       ],
-      "description": "🔧 Composant {{TRIGGER_NAME}} modifié",
+      "description": "🔧 Component {{TRIGGER_NAME}} modified",
       "showInlineHint": false
     },
     {
@@ -79,14 +96,14 @@
       "notify": [
         {
           "file": "src/app/globals.css",
-          "description": "🎨 Vérifier les variables CSS globales"
+          "description": "🎨 Check global CSS variables"
         },
         {
           "file": "tailwind.config.ts",
-          "description": "⚙️ Synchroniser la configuration Tailwind"
+          "description": "⚙️ Sync Tailwind configuration"
         }
       ],
-      "description": "📐 Layout modifié - vérifier les styles",
+      "description": "📐 Layout modified - check styles",
       "showInlineHint": true
     },
     {
@@ -95,10 +112,10 @@
       "notify": [
         {
           "file": "tailwind.config.ts",
-          "description": "🔄 Synchroniser les variables CSS avec Tailwind"
+          "description": "🔄 Sync CSS variables with Tailwind"
         }
       ],
-      "description": "🎨 Variables CSS globales modifiées",
+      "description": "🎨 Global CSS variables modified",
       "showInlineHint": true
     },
     {
@@ -107,14 +124,14 @@
       "notify": [
         {
           "file": "src/app/globals.css",
-          "description": "🎨 Vérifier que les variables CSS correspondent"
+          "description": "🎨 Verify that CSS variables match"
         },
         {
           "commands": ["pnpm run build"],
-          "description": "🔨 Tester le build après modification de config"
+          "description": "🔨 Test build after config modification"
         }
       ],
-      "description": "⚙️ Configuration Tailwind modifiée",
+      "description": "⚙️ Tailwind configuration modified",
       "showInlineHint": true
     }
   ]

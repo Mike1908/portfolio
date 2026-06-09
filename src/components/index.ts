@@ -7,6 +7,7 @@ export { BackgroundGrid, type BackgroundGridProps } from './atoms/BackgroundGrid
 export { StatCard, type StatCardProps } from './atoms/StatCard';
 export { TechTag, type TechTagProps } from './atoms/TechTag';
 export { SkillTag, type SkillTagProps } from './atoms/SkillTag';
+export { ContactLink, type ContactLinkProps } from './atoms/ContactLink';
 
 // Molecules - Combinaisons d'atomes
 export { ThemeToggle } from './molecules/ThemeToggle';
@@ -23,6 +24,7 @@ export { AboutSection, type AboutSectionProps, type Stat } from './organisms/Abo
 export { ExperienceSection, type ExperienceSectionProps } from './organisms/ExperienceSection';
 export { ProjectsSection, type ProjectsSectionProps } from './organisms/ProjectsSection';
 export { SkillsSection, type SkillsSectionProps, type SkillGroup, type Skill } from './organisms/SkillsSection';
+export { ContactSection, type ContactSectionProps, type ContactLinkData } from './organisms/ContactSection';
 
 // Providers - Context providers
 export { ThemeProvider, type ThemeProviderProps } from './providers';
