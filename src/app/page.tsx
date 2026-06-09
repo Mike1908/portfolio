@@ -1,135 +1,198 @@
-import { NavBar, HeroSection, SectionReveal, AboutSection, ExperienceSection, ProjectsSection, SkillsSection, ContactSection, Footer } from "@/components";
+import {
+  NavBar,
+  HeroSection,
+  AboutSection,
+  ExperienceSection,
+  ProjectsSection,
+  SkillsSection,
+  ContactSection,
+  Footer,
+} from "@/components";
 
 const navLinks = [
   { label: "À propos", href: "#about" },
+  { label: "Expérience", href: "#experience" },
   { label: "Projets", href: "#projects" },
   { label: "Compétences", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
 
 const badges = [
-  { label: "Développeur Full Stack", variant: "primary" as const },
-  { label: "React & Next.js", variant: "secondary" as const },
-  { label: "TypeScript", variant: "accent" as const },
+  { label: "Disponible pour missions", variant: "primary" as const },
+  { label: "3+ ans d'expérience", variant: "secondary" as const },
+  { label: "modcodepattern.com", variant: "accent" as const },
 ];
 
 const aboutStats = [
-  { label: "Années d'expérience", value: "5+" },
-  { label: "Projets réalisés", value: "50+" },
-  { label: "Clients satisfaits", value: "30+" },
-  { label: "Tasses de café", value: "∞" },
+  { label: "Années d'expérience", value: "3+" },
+  { label: "Clients majeurs", value: "6" },
+  { label: "Composants livrés", value: "30+" },
 ];
 
 const experiences = [
   {
-    company: "TechCorp Innovation",
-    role: "Lead Developer Front-End",
-    period: "2022 - Présent",
-    description: "Direction technique d'une équipe de 5 développeurs sur la refonte complète d'une plateforme SaaS. Mise en place d'un design system et migration vers Next.js 14 avec amélioration des performances de 40%.",
-    tags: ["React", "Next.js", "TypeScript", "Tailwind", "Framer Motion"],
+    company: "Projet confidentiel",
+    role: "Développeur Full-stack",
+    period: "Déc. 2025 — Mai 2026",
+    description:
+      "Développement full-stack au sein d'une équipe Agile sur une solution d'intégration de LLMs, administrable par les clients via une interface dédiée. Contribution au front-end en React/Next.js, au back-end en Node.js/Fastify, et aux API typées via tRPC. Manipulation de données avec Prisma et PostgreSQL, dans une architecture monorepo avec Turborepo.",
+    tags: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Fastify",
+      "tRPC",
+      "Prisma",
+      "PostgreSQL",
+      "Turborepo",
+    ],
   },
   {
-    company: "Digital Solutions Inc.",
-    role: "Développeur Full Stack",
-    period: "2020 - 2022",
-    description: "Développement d'applications web modernes pour des clients internationaux. Création d'APIs REST et GraphQL, intégration de solutions de paiement et optimisation SEO.",
-    tags: ["Node.js", "React", "PostgreSQL", "GraphQL", "Docker"],
+    company: "Vidéotron",
+    role: "Développeur Front-end",
+    period: "Nov. 2025 — Déc. 2025",
+    description:
+      "Participation à la refonte d'une plateforme Drupal vers une architecture moderne découplée, au sein d'une équipe multi-équipes. Responsable du front-end et du BFF, avec une stack React, Next.js et NestJS. Drupal utilisé en mode headless pour la gestion de contenu, le tout déployé via Kubernetes et Jenkins.",
+    tags: ["React", "Next.js", "NestJS", "Drupal", "Kubernetes", "Jenkins"],
   },
   {
-    company: "Startup Labs",
-    role: "Développeur Front-End",
-    period: "2019 - 2020",
-    description: "Développement d'interfaces utilisateur réactives et accessibles pour des startups en phase de croissance. Collaboration étroite avec les designers pour implémenter des expériences utilisateur optimales.",
-    tags: ["React", "JavaScript", "SASS", "Redux", "Jest"],
+    company: "Modcodepattern (Personnel)",
+    role: "Développeur Full-stack",
+    period: "Juil. 2025 — Aujourd'hui",
+    description:
+      "Développement solo d'une extension VS Code publiée sur le Marketplace, avec un site web en Next.js. L'extension surveille les fichiers d'un projet et génère une todo liste interactive pour maintenir la cohérence entre fichiers interdépendants.",
+    tags: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Tailwind",
+      "Stripe",
+      "Supabase",
+    ],
+  },
+  {
+    company: "Saraga (Alithya)",
+    role: "Développeur Full-stack",
+    period: "Jan. 2025 — Avr. 2025",
+    description:
+      "Participation à la refonte d'un système d'administration et de réclamation au sein d'une équipe full-stack. Intervention aussi bien côté front-end que back-end selon les besoins, sur une architecture moderne avec React, NestJS et MySQL. Le projet visait à améliorer l'expérience utilisateur, la flexibilité des outils et la sécurité des données.",
+    tags: ["React", "NestJS", "MySQL", "TypeScript"],
+  },
+  {
+    company: "MIZA (Alithya)",
+    role: "Développeur Front-end",
+    period: "Nov. 2023 — Nov. 2024",
+    description:
+      "Développement en équipe d'une bibliothèque d'une trentaine de composants React réutilisables, couvrant la quasi-totalité des besoins UI courants. Composants conçus pour être mobile-friendly et conformes aux standards d'accessibilité universelle, documentés via Storybook et testés avec Jest.",
+    tags: [
+      "React",
+      "TypeScript",
+      "Storybook",
+      "Jest",
+      "Material UI",
+      "Accessibility",
+    ],
+  },
+  {
+    company: "Aéroport de Montréal",
+    role: "Développeur Front-end",
+    period: "Avr. 2023 — Sep. 2023",
+    description:
+      "Développement du site administrateur d'un système de régulation des taxis de l'aéroport, en collaboration avec les équipes mobile. Responsable de la construction de l'interface avec React, Next.js et Material UI, ainsi que de l'intégration des appels API pour l'affichage des données en temps réel. Tests automatisés avec Cypress et validation des données avec Zod.",
+    tags: ["React", "Next.js", "Material UI", "Cypress", "Zod"],
+  },
+  {
+    company: "Air France",
+    role: "Développeur Front-end",
+    period: "Mar. 2023 — Avr. 2023",
+    description:
+      "Développement d'un site interne de collaboration d'équipe au sein d'une équipe Agile/Scrum. Contribution à la construction d'une bibliothèque de composants réutilisables avec Material UI, documentée via Storybook et conçue pour être partagée à travers les différents sites de la marque.",
+    tags: ["React", "Material UI", "Storybook", "Agile/Scrum"],
   },
 ];
 
 const projects = [
   {
     number: "01",
-    title: "E-Commerce Platform",
-    description: "Plateforme de commerce en ligne complète avec gestion des stocks, paiements et tableau de bord administrateur.",
-    stack: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
-    url: "https://example.com",
+    title: "Modcodepattern",
+    description:
+      "Extension VS Code publiée sur le Marketplace avec site web en Next.js. Surveille les fichiers d'un projet et génère une todo liste interactive pour maintenir la cohérence entre fichiers interdépendants.",
+    stack: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Tailwind",
+      "Stripe",
+      "Supabase",
+    ],
+    url: "https://modcodepattern.com",
   },
   {
     number: "02",
-    title: "Dashboard Analytics",
-    description: "Interface de visualisation de données en temps réel avec graphiques interactifs et exports personnalisés.",
-    stack: ["React", "D3.js", "Node.js", "MongoDB"],
-    url: "https://example.com",
+    title: "Design System MIZA",
+    description:
+      "Bibliothèque de 30+ composants React réutilisables, couvrant la quasi-totalité des besoins UI courants. Composants mobile-friendly et conformes aux standards d'accessibilité universelle.",
+    stack: ["React", "TypeScript", "Storybook", "Jest", "Material UI"],
   },
   {
     number: "03",
-    title: "Design System",
-    description: "Système de design complet avec composants réutilisables, documentation interactive et thème personnalisable.",
-    stack: ["React", "Storybook", "TypeScript", "CSS-in-JS"],
-  },
-  {
-    number: "04",
-    title: "Mobile App",
-    description: "Application mobile cross-platform avec authentification, notifications push et synchronisation offline.",
-    stack: ["React Native", "Firebase", "Redux", "TypeScript"],
-    url: "https://example.com",
-  },
-  {
-    number: "05",
-    title: "CMS Headless",
-    description: "Système de gestion de contenu découplé avec API GraphQL et interface d'administration moderne.",
-    stack: ["Node.js", "GraphQL", "React", "PostgreSQL"],
-  },
-  {
-    number: "06",
-    title: "Portfolio Creator",
-    description: "Outil de création de portfolios avec templates personnalisables et déploiement automatique.",
-    stack: ["Next.js", "Vercel", "Tailwind", "MDX"],
-    url: "https://example.com",
+    title: "LLM Admin Platform",
+    description:
+      "Plateforme d'administration pour solution d'intégration de LLMs. Architecture monorepo moderne avec API typées et gestion de données performante.",
+    stack: ["React", "Next.js", "tRPC", "Turborepo", "Prisma", "PostgreSQL"],
   },
 ];
 
 const skillGroups = [
   {
-    label: "Front-End",
+    label: "Frontend",
     skills: [
+      { label: "JavaScript", featured: true },
+      { label: "TypeScript", featured: true },
       { label: "React", featured: true },
       { label: "Next.js", featured: true },
-      { label: "TypeScript", featured: true },
-      { label: "JavaScript", featured: false },
-      { label: "HTML/CSS", featured: false },
-      { label: "Tailwind CSS", featured: true },
+      { label: "Tailwind", featured: true },
+      { label: "Material UI", featured: false },
+      { label: "Storybook", featured: true },
       { label: "Framer Motion", featured: false },
+      { label: "Astro", featured: false },
     ],
   },
   {
-    label: "Back-End",
+    label: "Backend",
     skills: [
       { label: "Node.js", featured: true },
-      { label: "Express", featured: false },
+      { label: "NestJS", featured: true },
+      { label: "tRPC", featured: true },
+      { label: "REST", featured: false },
       { label: "PostgreSQL", featured: true },
       { label: "MongoDB", featured: false },
-      { label: "GraphQL", featured: false },
-      { label: "REST APIs", featured: true },
+      { label: "Prisma", featured: false },
+      { label: "Zod", featured: false },
     ],
   },
   {
-    label: "Outils & DevOps",
+    label: "Data & DevOps",
     skills: [
       { label: "Git", featured: true },
+      { label: "Bitbucket", featured: false },
       { label: "Docker", featured: false },
-      { label: "Vercel", featured: false },
-      { label: "CI/CD", featured: false },
-      { label: "Jest", featured: false },
-      { label: "Webpack", featured: false },
+      { label: "Kubernetes", featured: false },
+      { label: "Jenkins", featured: false },
+      { label: "Supabase", featured: false },
+      { label: "Turborepo", featured: false },
     ],
   },
   {
-    label: "Design & UX",
+    label: "Qualité & Tests",
     skills: [
-      { label: "Figma", featured: true },
-      { label: "Design Systems", featured: true },
-      { label: "Responsive Design", featured: true },
-      { label: "Accessibility", featured: false },
-      { label: "Animation", featured: false },
+      { label: "Jest", featured: true },
+      { label: "Cypress", featured: false },
+      { label: "Storybook", featured: true },
+      { label: "TypeScript", featured: true },
+      { label: "Zod", featured: false },
     ],
   },
 ];
@@ -137,26 +200,26 @@ const skillGroups = [
 const contactLinks = [
   {
     label: "Email",
-    value: "mike@example.com",
-    href: "mailto:mike@example.com",
+    value: "usenimikesefu@gmail.com",
+    href: "mailto:usenimikesefu@gmail.com",
     external: false,
   },
   {
-    label: "GitHub",
-    value: "github.com/mikeuseni",
-    href: "https://github.com/mikeuseni",
-    external: true,
+    label: "Téléphone",
+    value: "(514) 224-3712",
+    href: "tel:+15142243712",
+    external: false,
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/mikeuseni",
-    href: "https://linkedin.com/in/mikeuseni",
+    value: "LinkedIn",
+    href: "https://www.linkedin.com/in/mike-useni-13b707220/",
     external: true,
   },
   {
-    label: "Twitter",
-    value: "@mikeuseni",
-    href: "https://twitter.com/mikeuseni",
+    label: "VS Code Marketplace",
+    value: "Modcodepattern Extension",
+    href: "https://marketplace.visualstudio.com/items?itemName=modcodepattern.modcodepattern",
     external: true,
   },
 ];
@@ -165,19 +228,19 @@ export default function Home() {
   return (
     <div className="flex flex-col flex-1 font-sans">
       <NavBar links={navLinks} logoText="MU" />
-      
+
       <HeroSection
         firstName="Mike"
         lastName="Useni"
         eyebrow="Développeur Front-End & Full-Stack · Montréal, QC"
-        tagline="Créateur d'expériences web modernes et performantes. Passionné par le design système et l'architecture logicielle."
+        tagline="Développeur front-end et full-stack basé à Montréal, spécialisé dans React, Next.js et Node.js. Créateur d'expériences web modernes avec un focus sur le code propre et les design systems."
         badges={badges}
-        scrollTarget="#content"
+        scrollTarget="#about"
       />
 
       {/* Section À propos avec AboutSection */}
       <AboutSection
-        bio="Je suis un <strong>développeur passionné</strong> par la création d'expériences web exceptionnelles. Spécialisé en <strong>React et Next.js</strong>, je combine design moderne et architecture solide pour créer des applications performantes et scalables. Mon approche met l'accent sur <strong>l'expérience utilisateur</strong> et les meilleures pratiques de développement."
+        bio="Développeur front-end et full-stack basé à Montréal, avec plus de trois ans d'expérience sur des projets réels pour des clients comme <strong>Air France</strong>, l'<strong>Aéroport de Montréal</strong> et <strong>Vidéotron</strong>. Diplômé en informatique de l'Université de Montréal, je travaille principalement avec <strong>React</strong>, <strong>Next.js</strong>, <strong>TypeScript</strong> et <strong>Node.js</strong>.<br/><br/>Ce qui me tient à cœur : écrire du code propre, bien structuré, et construire des composants qu'on a vraiment envie de réutiliser. J'ai développé une bonne expérience en <strong>design systems</strong> et bibliothèques de composants, et je suis aussi à l'aise côté back-end quand le projet le demande."
         stats={aboutStats}
       />
 
@@ -188,16 +251,10 @@ export default function Home() {
       />
 
       {/* Section Projets */}
-      <ProjectsSection
-        title="Projets sélectionnés"
-        projects={projects}
-      />
+      <ProjectsSection title="Projets sélectionnés" projects={projects} />
 
       {/* Section Compétences */}
-      <SkillsSection
-        title="Compétences techniques"
-        groups={skillGroups}
-      />
+      <SkillsSection title="Compétences techniques" groups={skillGroups} />
 
       {/* Section Contact */}
       <ContactSection
@@ -205,96 +262,10 @@ export default function Home() {
         subtitle="N'hésitez pas à me contacter pour discuter de vos projets ou simplement échanger sur la technologie."
         links={contactLinks}
       />
-      
-      <main id="content" className="flex flex-1 w-full flex-col items-center py-32 px-6 sm:px-16">
-        <div className="w-full max-w-4xl space-y-24">
-          
-          {/* Section 1 - Sans délai */}
-          <SectionReveal>
-            <div className="space-y-4">
-              <h2 className="text-4xl font-bold tracking-tight text-primary">
-                Section avec SectionReveal
-              </h2>
-              <p className="text-lg text-body leading-relaxed">
-                Cette section apparaît avec une animation d&apos;opacité 0→1 et y 20→0,
-                avec un ease-out de 0.65s. Elle se déclenche quand vous scrollez jusqu&apos;à elle.
-              </p>
-            </div>
-          </SectionReveal>
 
-          {/* Section 2 - Délai 0.15s */}
-          <SectionReveal delay={0.15}>
-            <div className="space-y-4">
-              <h3 className="text-3xl font-semibold tracking-tight text-primary">
-                Avec délai de 0.15s
-              </h3>
-              <p className="text-lg text-body leading-relaxed">
-                Cette section a un délai de 0.15s, créant un effet de stagger par rapport à la section précédente.
-              </p>
-            </div>
-          </SectionReveal>
-
-          {/* Section 3 - Délai 0.3s */}
-          <SectionReveal delay={0.3}>
-            <div className="space-y-4">
-              <h3 className="text-3xl font-semibold tracking-tight text-primary">
-                Avec délai de 0.3s
-              </h3>
-              <p className="text-lg text-body leading-relaxed">
-                Cette section a un délai de 0.3s pour un effet encore plus marqué.
-              </p>
-            </div>
-          </SectionReveal>
-
-          {/* Section avec plusieurs enfants staggerés */}
-          <div className="space-y-8">
-            <SectionReveal>
-              <h3 className="text-3xl font-semibold tracking-tight text-primary">
-                Effet de stagger sur plusieurs éléments
-              </h3>
-            </SectionReveal>
-
-            <SectionReveal delay={0.1}>
-              <div className="p-6 rounded-lg border border-border bg-bg-surface">
-                <h4 className="text-xl font-medium mb-2">Élément 1</h4>
-                <p className="text-body">Apparaît en premier avec 0.1s de délai</p>
-              </div>
-            </SectionReveal>
-
-            <SectionReveal delay={0.2}>
-              <div className="p-6 rounded-lg border border-border bg-bg-surface">
-                <h4 className="text-xl font-medium mb-2">Élément 2</h4>
-                <p className="text-body">Apparaît ensuite avec 0.2s de délai</p>
-              </div>
-            </SectionReveal>
-
-            <SectionReveal delay={0.3}>
-              <div className="p-6 rounded-lg border border-border bg-bg-surface">
-                <h4 className="text-xl font-medium mb-2">Élément 3</h4>
-                <p className="text-body">Apparaît en dernier avec 0.3s de délai</p>
-              </div>
-            </SectionReveal>
-          </div>
-
-          {/* Section avec once={false} */}
-          <SectionReveal once={false}>
-            <div className="p-8 rounded-lg bg-primary/10 border border-primary/20">
-              <h3 className="text-2xl font-semibold tracking-tight text-primary mb-4">
-                Animation répétée (once=false)
-              </h3>
-              <p className="text-lg text-body leading-relaxed">
-                Cette section s&apos;anime à chaque fois qu&apos;elle entre dans la vue.
-                Scrollez vers le haut puis redescendez pour voir l&apos;animation à nouveau!
-              </p>
-            </div>
-          </SectionReveal>
-
-        </div>
-      </main>
-
-      <Footer 
-        year={new Date().getFullYear()} 
-        name="Mike Useni" 
+      <Footer
+        year={new Date().getFullYear()}
+        name="Mike Useni"
         location="Montréal, QC"
       />
     </div>

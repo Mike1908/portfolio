@@ -15,7 +15,7 @@ export type AboutSectionProps = {
 
 export const AboutSection = ({ bio, stats }: AboutSectionProps) => {
   return (
-    <section className="relative w-full py-section px-6 lg:px-8">
+    <section id="about" className="relative w-full py-section px-6 lg:px-8">
       <div className="mx-auto w-full max-w-7xl">
         {/* Grid 2 colonnes, responsive */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
