@@ -16,22 +16,29 @@ export type SkillGroup = {
 };
 
 export type SkillsSectionProps = {
+  readonly label?: string;
   readonly title?: string;
-  readonly subtitle?: string;
   readonly groups: SkillGroup[];
   readonly className?: string;
 };
 
 export const SkillsSection = ({
+  label = "Expertise",
   title = "Compétences",
-  subtitle,
   groups,
   className,
 }: SkillsSectionProps) => {
+  const totalSkills = groups.reduce((acc, group) => acc + group.skills.length, 0);
+  
   return (
-    <section className={cn("relative w-full py-section px-6 lg:px-8", className)}>
+    <section id="skills" className={cn("relative w-full py-section px-6 lg:px-8", className)}>
       <div className="mx-auto w-full max-w-7xl">
-        <SectionHeader title={title} subtitle={subtitle} />
+        <SectionHeader 
+          label={label} 
+          title={title} 
+          titleId="skills-title"
+          count={`${totalSkills} compétence${totalSkills > 1 ? 's' : ''}`}
+        />
 
         <SectionReveal delay={0.1}>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-8">

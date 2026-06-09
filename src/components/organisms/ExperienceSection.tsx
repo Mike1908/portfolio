@@ -5,22 +5,27 @@ import { ExperienceItem, type Experience } from "../molecules/ExperienceItem";
 import { cn } from "@/lib/utils";
 
 export type ExperienceSectionProps = {
+  readonly label?: string;
   readonly title?: string;
-  readonly subtitle?: string;
   readonly experiences: Experience[];
   readonly className?: string;
 };
 
 export const ExperienceSection = ({
+  label = "Parcours",
   title = "Expérience",
-  subtitle,
   experiences,
   className,
 }: ExperienceSectionProps) => {
   return (
-    <section className={cn("relative w-full py-section px-6 lg:px-8", className)}>
+    <section id="experience" className={cn("relative w-full py-section px-6 lg:px-8", className)}>
       <div className="mx-auto w-full max-w-7xl">
-        <SectionHeader title={title} subtitle={subtitle} />
+        <SectionHeader 
+          label={label} 
+          title={title} 
+          titleId="experience-title"
+          count={`${experiences.length} poste${experiences.length > 1 ? 's' : ''}`}
+        />
 
         <div role="list">
           {experiences.map((experience, index) => (

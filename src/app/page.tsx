@@ -1,4 +1,4 @@
-import { NavBar, HeroSection, SectionReveal, AboutSection, ExperienceSection, ProjectsSection, SkillsSection, ContactSection } from "@/components";
+import { NavBar, HeroSection, SectionReveal, AboutSection, ExperienceSection, ProjectsSection, SkillsSection, ContactSection, Footer } from "@/components";
 
 const navLinks = [
   { label: "À propos", href: "#about" },
@@ -184,21 +184,18 @@ export default function Home() {
       {/* Section Expérience */}
       <ExperienceSection
         title="Expérience professionnelle"
-        subtitle="Mon parcours de développeur à travers différentes entreprises"
         experiences={experiences}
       />
 
       {/* Section Projets */}
       <ProjectsSection
         title="Projets sélectionnés"
-        subtitle="Une collection de mes réalisations récentes"
         projects={projects}
       />
 
       {/* Section Compétences */}
       <SkillsSection
         title="Compétences techniques"
-        subtitle="Technologies et outils que je maîtrise"
         groups={skillGroups}
       />
 
@@ -294,6 +291,12 @@ export default function Home() {
 
         </div>
       </main>
+
+      <Footer 
+        year={new Date().getFullYear()} 
+        name="Mike Useni" 
+        location="Montréal, QC"
+      />
     </div>
   );
 }

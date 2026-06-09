@@ -25,6 +25,7 @@ export { ExperienceSection, type ExperienceSectionProps } from './organisms/Expe
 export { ProjectsSection, type ProjectsSectionProps } from './organisms/ProjectsSection';
 export { SkillsSection, type SkillsSectionProps, type SkillGroup, type Skill } from './organisms/SkillsSection';
 export { ContactSection, type ContactSectionProps, type ContactLinkData } from './organisms/ContactSection';
+export { Footer, type FooterProps } from './organisms/Footer';
 
 // Providers - Context providers
 export { ThemeProvider, type ThemeProviderProps } from './providers';
