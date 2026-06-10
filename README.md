@@ -116,6 +116,19 @@ npm start
 npm run lint
 ```
 
+### Déploiement
+
+```bash
+# Déploiement automatique via GitHub Actions (Recommandé)
+# Poussez simplement sur main
+git push origin main
+
+# Ou déploiement manuel avec gh-pages
+npm run deploy
+```
+
+Pour plus de détails, consultez le [guide de déploiement](./DEPLOYMENT.md).
+
 ## 📦 Architecture
 
 Le projet suit une **architecture atomique** inspirée d'Atomic Design avec une séparation claire entre données et présentation :
