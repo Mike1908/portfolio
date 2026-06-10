@@ -13,14 +13,24 @@ Toutes les configurations nécessaires ont déjà été faites :
 
 ### Étapes de déploiement
 
-#### 1. Activer GitHub Pages sur votre dépôt
+#### 1. Configurer les permissions GitHub Actions
 
 1. Allez sur votre dépôt GitHub : `https://github.com/Mike1908/portfolio`
 2. Cliquez sur **Settings** (Paramètres)
-3. Dans le menu de gauche, cliquez sur **Pages**
-4. Sous **Source**, sélectionnez **GitHub Actions**
+3. Dans le menu de gauche, cliquez sur **Actions** > **General**
+4. Descendez jusqu'à **Workflow permissions**
+5. Sélectionnez **Read and write permissions**
+6. Cochez **Allow GitHub Actions to create and approve pull requests**
+7. Cliquez sur **Save**
 
-#### 2. Pousser vos modifications
+#### 2. Activer GitHub Pages
+
+1. Dans **Settings**, cliquez sur **Pages**
+2. Sous **Source**, sélectionnez **Deploy from a branch**
+3. Choisissez la branche **gh-pages** et le dossier **/ (root)**
+4. Cliquez sur **Save**
+
+#### 3. Pousser vos modifications
 
 ```bash
 # Ajouter tous les fichiers modifiés
@@ -33,7 +43,7 @@ git commit -m "Configure GitHub Pages deployment"
 git push origin main
 ```
 
-#### 3. Vérifier le déploiement
+#### 4. Vérifier le déploiement
 
 1. Allez dans l'onglet **Actions** de votre dépôt
 2. Vous verrez le workflow "Deploy to GitHub Pages" en cours d'exécution
@@ -116,8 +126,23 @@ Vérifiez que `images.unoptimized: true` est bien dans `next.config.ts` (déjà 
 
 ### Erreur lors du déploiement
 
-1. Vérifiez les logs dans l'onglet **Actions**
-2. Assurez-vous que les permissions sont correctes dans **Settings** > **Actions** > **General** > **Workflow permissions** : "Read and write permissions"
+1. **Vérifiez les permissions** (cause #1 la plus fréquente) :
+   - Allez dans **Settings** > **Actions** > **General**
+   - Sous **Workflow permissions**, sélectionnez **Read and write permissions**
+   - Cochez **Allow GitHub Actions to create and approve pull requests**
+   - Cliquez sur **Save**
+
+2. **Vérifiez la configuration GitHub Pages** :
+   - Allez dans **Settings** > **Pages**
+   - Source doit être **Deploy from a branch**
+   - Branche doit être **gh-pages** avec dossier **/ (root)**
+
+3. **Vérifiez les logs** dans l'onglet **Actions** pour plus de détails
+
+4. **Relancez le workflow** :
+   - Allez dans **Actions**
+   - Cliquez sur le workflow échoué
+   - Cliquez sur **Re-run all jobs**
 
 ---
 
