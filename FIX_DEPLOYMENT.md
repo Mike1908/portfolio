@@ -1,16 +1,28 @@
 # 🔧 Correction du bug de déploiement
 
-## Problèmes identifiés
+## ⚠️ GUIDE SIMPLIFIÉ
 
-1. ❌ Le workflow utilisait `npm` alors que le projet utilise **pnpm**
-2. ❌ Manque de permissions GitHub Actions
-3. ❌ Versions obsolètes des actions GitHub
+**👉 Consultez le fichier `QUICK_DEPLOY_GUIDE.md` pour le guide complet et simplifié.**
 
-## ✅ Solutions appliquées
+---
 
-1. ✅ Workflow mis à jour pour utiliser **pnpm** au lieu de npm
-2. ✅ Mise à jour vers les versions v4 des actions GitHub
-3. ✅ Configuration correcte des permissions
+## Historique des problèmes corrigés
+
+### Problème #1 : npm vs pnpm
+❌ Le workflow utilisait `npm` alors que le projet utilise **pnpm**
+✅ **Corrigé** : Utilise maintenant pnpm
+
+### Problème #2 : Permissions manquantes
+❌ GitHub Actions n'avait pas les droits d'écriture
+✅ **Corrigé** : Documentation ajoutée pour configurer les permissions
+
+### Problème #3 : Node.js obsolète
+❌ Node.js 20 est dépréciée et sera retirée
+✅ **Corrigé** : Migration vers Node.js 22
+
+### Problème #4 : Workflow trop complexe
+❌ Workflow avec 2 jobs (build + deploy) créait des problèmes
+✅ **Corrigé** : Workflow simplifié en 1 seul job
 
 ## 📋 Actions à effectuer MAINTENANT
 
