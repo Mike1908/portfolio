@@ -14,6 +14,7 @@ export { ThemeToggle } from './molecules/ThemeToggle';
 export { CustomCursor, type CustomCursorProps } from './molecules/CustomCursor';
 export { SectionReveal, type SectionRevealProps } from './molecules/SectionReveal';
 export { SectionHeader, type SectionHeaderProps } from './molecules/SectionHeader';
+export { TechTagList, type TechTagListProps } from './molecules/TechTagList';
 export { ExperienceItem, type ExperienceItemProps, type Experience } from './molecules/ExperienceItem';
 export { ProjectCard, type ProjectCardProps, type Project } from './molecules/ProjectCard';
 

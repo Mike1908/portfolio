@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { TechTag } from "../atoms/TechTag";
+import { TechTagList } from "./TechTagList";
 
 export type Project = {
   readonly number: string;
@@ -46,14 +46,7 @@ export const ProjectCard = ({
         {description}
       </p>
 
-      {/* Stack de TechTag */}
-      {stack.length > 0 && (
-        <div className="flex flex-wrap gap-2">
-          {stack.map((tech, index) => (
-            <TechTag key={`${tech}-${index}`} label={tech} />
-          ))}
-        </div>
-      )}
+      <TechTagList tags={stack} />
     </>
   );
 

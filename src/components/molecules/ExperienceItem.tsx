@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { TechTag } from "../atoms/TechTag";
 import { SectionReveal } from "./SectionReveal";
+import { TechTagList } from "./TechTagList";
 
 export type Experience = {
   readonly company: string;
@@ -63,14 +63,7 @@ export const ExperienceItem = ({
             {description}
           </p>
 
-          {/* Tags */}
-          {tags.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {tags.map((tag, index) => (
-                <TechTag key={`${tag}-${index}`} label={tag} />
-              ))}
-            </div>
-          )}
+          <TechTagList tags={tags} />
         </div>
       </article>
     </SectionReveal>
