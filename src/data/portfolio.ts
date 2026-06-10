@@ -132,13 +132,6 @@ export const projects: Project[] = [
     stack: ["React", "Next.js", "TypeScript", "Tailwind", "Framer Motion"],
     url: "https://github.com/Mike1908/portfolio",
   },
-  {
-    number: "03",
-    title: "LLM Admin Platform",
-    description:
-      "Plateforme d'administration pour solution d'intégration de LLMs. Architecture monorepo moderne avec API typées et gestion de données performante.",
-    stack: ["React", "Next.js", "tRPC", "Turborepo", "Prisma", "PostgreSQL"],
-  },
 ];
 
 export const skillGroups: SkillGroup[] = [
@@ -210,6 +203,12 @@ export const contactLinks = [
     label: "LinkedIn",
     value: "LinkedIn",
     href: "https://www.linkedin.com/in/mike-useni-13b707220/",
+    external: true,
+  },
+  {
+    label: "site web",
+    value: "portfolio",
+    href: "https://mike1908.github.io/portfolio/",
     external: true,
   },
 ];
