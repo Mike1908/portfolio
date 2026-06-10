@@ -63,12 +63,16 @@ Si vous préférez déployer manuellement :
 ### 1. Installer gh-pages
 
 ```bash
+pnpm add -D gh-pages
+# Ou avec npm
 npm install --save-dev gh-pages
 ```
 
 ### 2. Déployer
 
 ```bash
+pnpm deploy
+# Ou avec npm
 npm run deploy
 ```
 

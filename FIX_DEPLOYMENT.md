@@ -1,12 +1,16 @@
 # 🔧 Correction du bug de déploiement
 
-## Problème identifié
+## Problèmes identifiés
 
-Le déploiement a échoué à cause d'un problème de permissions GitHub Actions.
+1. ❌ Le workflow utilisait `npm` alors que le projet utilise **pnpm**
+2. ❌ Manque de permissions GitHub Actions
+3. ❌ Versions obsolètes des actions GitHub
 
-## ✅ Solution appliquée
+## ✅ Solutions appliquées
 
-J'ai simplifié le workflow GitHub Actions pour utiliser une méthode plus fiable avec `peaceiris/actions-gh-pages`.
+1. ✅ Workflow mis à jour pour utiliser **pnpm** au lieu de npm
+2. ✅ Mise à jour vers les versions v4 des actions GitHub
+3. ✅ Configuration correcte des permissions
 
 ## 📋 Actions à effectuer MAINTENANT
 

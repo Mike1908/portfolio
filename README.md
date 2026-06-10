@@ -70,7 +70,7 @@ src/
 ### Prérequis
 
 - Node.js 18+ 
-- npm, yarn, pnpm ou bun
+- pnpm (recommandé) ou npm/yarn/bun
 
 ### Installation
 
@@ -78,23 +78,21 @@ src/
 # Cloner le dépôt
 git clone https://github.com/Mike1908/portfolio.git
 
-# Installer les dépendances
-npm install
-# ou
+# Installer les dépendances (avec pnpm)
 pnpm install
-# ou
-yarn install
+
+# Ou avec npm
+npm install
 ```
 
 ### Développement
 
 ```bash
 # Lancer le serveur de développement
-npm run dev
-# ou
 pnpm dev
-# ou
-yarn dev
+
+# Ou avec npm
+npm run dev
 ```
 
 Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur.
@@ -103,17 +101,17 @@ Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
 ```bash
 # Créer un build de production
-npm run build
+pnpm build
 
 # Lancer le serveur de production
-npm start
+pnpm start
 ```
 
 ### Linting
 
 ```bash
 # Vérifier le code avec ESLint
-npm run lint
+pnpm lint
 ```
 
 ### Déploiement
@@ -124,7 +122,7 @@ npm run lint
 git push origin main
 
 # Ou déploiement manuel avec gh-pages
-npm run deploy
+pnpm deploy
 ```
 
 Pour plus de détails, consultez le [guide de déploiement](./DEPLOYMENT.md).
