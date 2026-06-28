@@ -10,6 +10,7 @@ Portfolio professionnel présentant mon parcours, mes compétences et mes projet
 
 - **Design moderne et minimaliste** avec animations fluides
 - **Architecture atomique** (atoms, molecules, organisms) pour une meilleure réutilisabilité
+- **Navigation mobile optimisée** avec menu hamburger directionnel
 - **Animations scroll-based** avec Framer Motion
 - **Responsive design** optimisé mobile-first
 - **Performance optimisée** avec Next.js 15
@@ -40,19 +41,25 @@ src/
 ├── components/
 │   ├── atoms/             # Composants de base réutilisables
 │   │   ├── Badge.tsx
+│   │   ├── ChevronLeftIcon.tsx
+│   │   ├── ChevronRightIcon.tsx
 │   │   ├── ContactLink.tsx
+│   │   ├── MenuIcon.tsx
 │   │   ├── ScrollHint.tsx
 │   │   ├── SkillTag.tsx
 │   │   ├── StatCard.tsx
 │   │   └── TechTag.tsx
 │   ├── molecules/         # Composants composés d'atoms
+│   │   ├── EducationItem.tsx
 │   │   ├── ExperienceItem.tsx
+│   │   ├── MobileMenu.tsx
 │   │   ├── ProjectCard.tsx
 │   │   ├── SectionHeader.tsx
 │   │   └── SectionReveal.tsx
 │   └── organisms/         # Composants complexes
 │       ├── AboutSection.tsx
 │       ├── ContactSection.tsx
+│       ├── EducationSection.tsx
 │       ├── ExperienceSection.tsx
 │       ├── Footer.tsx
 │       ├── HeroSection.tsx
@@ -60,7 +67,7 @@ src/
 │       ├── ProjectsSection.tsx
 │       └── SkillsSection.tsx
 ├── data/                  # Données du portfolio
-│   └── portfolio.ts       # Toutes les données (expériences, projets, compétences, etc.)
+│   └── portfolio.ts       # Toutes les données (expériences, projets, compétences, formation, etc.)
 ├── lib/                   # Utilitaires et helpers
 └── styles/               # Styles globaux
 ```
@@ -142,6 +149,7 @@ Le projet suit une **architecture atomique** inspirée d'Atomic Design avec une 
 - **`src/data/portfolio.ts`** : Fichier centralisé contenant toutes les données du portfolio
   - Informations personnelles (nom, titre, localisation)
   - Expériences professionnelles (7 postes)
+  - Formation et certifications (4 éléments)
   - Projets (3 projets phares)
   - Compétences techniques (4 catégories)
   - Liens de contact
@@ -167,6 +175,7 @@ Le projet utilise un design system cohérent basé sur :
 - **Hero** : Présentation avec nom, titre et badges
 - **À propos** : Biographie et statistiques clés
 - **Expérience** : Parcours professionnel détaillé (7 postes)
+- **Formation & Certifications** : Diplômes académiques et certifications professionnelles
 - **Projets** : Projets personnels et professionnels (3 projets phares)
 - **Compétences** : Compétences techniques organisées en 4 catégories
 - **Contact** : Liens de contact et réseaux
