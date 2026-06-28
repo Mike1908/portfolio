@@ -260,7 +260,7 @@ export const heroData = {
   lastName: "Useni",
   eyebrow: "Développeur Front-End & Full-Stack · Montréal, QC",
   tagline:
-    "Développeur front-end et full-stack basé à Montréal, spécialisé dans React, Next.js et Node.js. Créateur d'expériences web modernes avec un focus sur le code propre et les design systems.",
+    "Mon boulot, c'est de faire en sorte que les bonnes idées deviennent de vrais produits — proprement, durablement. Avec React, Next.js et Node.js comme terrain de jeu.",
 };
 
 export const aboutBio =
