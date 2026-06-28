@@ -35,25 +35,7 @@
       "description": {
         "fr": "✍️ Commit effectué - vérification convention + changeset",
         "en": "✍️ Commit made - check convention + changeset"
-      },
-      "notify": [
-        {
-          "commands": [
-            "echo 'Format: type(scope): message | e.g: feat(auth): add logout button'"
-          ],
-          "description": {
-            "fr": "✍️ Ton commit suit-il la convention ? type(scope): message",
-            "en": "✍️ Does your commit follow the convention? type(scope): message"
-          }
-        },
-        {
-          "commands": ["npx changeset status"],
-          "description": {
-            "fr": "📝 Vérifier si un changeset est nécessaire pour cette modification",
-            "en": "📝 Check if a changeset is needed for this change"
-          }
-        }
-      ]
+      }
     },
 
     {
