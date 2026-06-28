@@ -1,0 +1,127 @@
+{
+  "patterns": [
+    {
+      "id": "flink-commands",
+      "onManual": "flinkCommands",
+      "manualTitle": "⚡ Flink: Commandes du projet / Project Commands",
+      "description": {
+        "fr": "Toutes les commandes du projet, cliquables pour exécution immédiate.",
+        "en": "All project commands, clickable for immediate execution."
+      },
+      "notify": [
+        {
+          "commands": ["npm run dev"],
+          "description": {
+            "fr": "🚀 DEV - Lancer le serveur de développement local",
+            "en": "🚀 DEV - Start the local development server"
+          }
+        },
+        {
+          "commands": ["npm run build"],
+          "description": {
+            "fr": "🏗️ BUILD - Compiler le projet pour la production",
+            "en": "🏗️ BUILD - Compile the project for production"
+          }
+        },
+        {
+          "commands": ["npm run preview"],
+          "description": {
+            "fr": "👁️ PREVIEW - Prévisualiser le build de production en local",
+            "en": "👁️ PREVIEW - Preview the production build locally"
+          }
+        },
+        {
+          "commands": ["npm run lint"],
+          "description": {
+            "fr": "🔍 LINT - Vérifier la qualité du code (ESLint)",
+            "en": "🔍 LINT - Check code quality (ESLint)"
+          }
+        },
+        {
+          "commands": ["npm run lint:fix"],
+          "description": {
+            "fr": "🔧 LINT:FIX - Corriger automatiquement les erreurs de lint",
+            "en": "🔧 LINT:FIX - Automatically fix lint errors"
+          }
+        },
+        {
+          "commands": ["npm run test"],
+          "description": {
+            "fr": "🧪 TEST - Lancer tous les tests unitaires (Vitest)",
+            "en": "🧪 TEST - Run all unit tests (Vitest)"
+          }
+        },
+        {
+          "commands": ["npm run test:watch"],
+          "description": {
+            "fr": "👀 TEST:WATCH - Tests en mode watch (relance à chaque sauvegarde)",
+            "en": "👀 TEST:WATCH - Tests in watch mode (reruns on every save)"
+          }
+        },
+        {
+          "commands": ["npm run test:coverage"],
+          "description": {
+            "fr": "📊 TEST:COVERAGE - Tests avec rapport de couverture de code",
+            "en": "📊 TEST:COVERAGE - Tests with code coverage report"
+          }
+        },
+        {
+          "commands": ["npm run storybook"],
+          "description": {
+            "fr": "📖 STORYBOOK - Lancer Storybook pour visualiser les composants",
+            "en": "📖 STORYBOOK - Launch Storybook to visualize components"
+          }
+        },
+        {
+          "commands": ["npm run storybook:build"],
+          "description": {
+            "fr": "📦 STORYBOOK:BUILD - Compiler Storybook en version statique",
+            "en": "📦 STORYBOOK:BUILD - Build Storybook as a static version"
+          }
+        },
+        {
+          "commands": ["npx changeset"],
+          "description": {
+            "fr": "📝 CHANGESET - Créer un changeset (obligatoire avant chaque PR)",
+            "en": "📝 CHANGESET - Create a changeset (required before every PR)"
+          }
+        },
+        {
+          "commands": ["npx changeset status"],
+          "description": {
+            "fr": "📋 CHANGESET:STATUS - Vérifier les changesets en attente",
+            "en": "📋 CHANGESET:STATUS - Check pending changesets"
+          }
+        },
+        {
+          "commands": ["docker compose up -d"],
+          "description": {
+            "fr": "🐳 DOCKER:UP - Démarrer les services Docker (DB + Redis) en arrière-plan",
+            "en": "🐳 DOCKER:UP - Start Docker services (DB + Redis) in the background"
+          }
+        },
+        {
+          "commands": ["docker compose down"],
+          "description": {
+            "fr": "🛑 DOCKER:DOWN - Arrêter tous les services Docker",
+            "en": "🛑 DOCKER:DOWN - Stop all Docker services"
+          }
+        },
+        {
+          "commands": ["npx dotenv-vault pull"],
+          "description": {
+            "fr": "🔐 ENV:PULL - Récupérer les dernières variables d'environnement du vault",
+            "en": "🔐 ENV:PULL - Pull the latest environment variables from the vault"
+          }
+        },
+        {
+          "commands": ["npm run lint", "npm run test", "npm run build"],
+          "description": {
+            "fr": "✅ PRE-PR - Séquence complète de validation avant d'ouvrir une PR",
+            "en": "✅ PRE-PR - Full validation sequence before opening a PR"
+          }
+        }
+      ]
+    }
+  ]
+}

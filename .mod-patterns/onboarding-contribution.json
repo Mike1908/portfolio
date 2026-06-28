@@ -1,0 +1,75 @@
+{
+  "patterns": [
+    {
+      "id": "onboarding-contribution",
+      "onManual": "flinkContribution",
+      "manualTitle": "🛠️ Flink: Workflow de contribution / Contribution Workflow",
+      "description": {
+        "fr": "Tout ce qu'il faut savoir avant de faire ta première PR.",
+        "en": "Everything you need to know before opening your first PR."
+      },
+      "notify": [
+        {
+          "file": "CONTRIBUTING.md",
+          "description": {
+            "fr": "📖 Lire le guide de contribution complet",
+            "en": "📖 Read the full contribution guide"
+          }
+        },
+        {
+          "commands": [
+            "echo 'Format branche : feature/FLINK-{id}-{description-courte}'"
+          ],
+          "description": {
+            "fr": "🌿 Convention des branches - ex: feature/FLINK-142-add-login-page",
+            "en": "🌿 Branch naming convention - e.g: feature/FLINK-142-add-login-page"
+          }
+        },
+        {
+          "commands": [
+            "echo 'Commit format: type(scope): message | Types: feat, fix, chore, refactor, docs, test, style'"
+          ],
+          "description": {
+            "fr": "✍️ Convention des commits - ex: feat(auth): add forgot password flow",
+            "en": "✍️ Commit convention - e.g: feat(auth): add forgot password flow"
+          }
+        },
+        {
+          "url": "https://notion.flink.io/commit-types",
+          "description": {
+            "fr": "📋 Liste complète des types de commits acceptés",
+            "en": "📋 Full list of accepted commit types"
+          }
+        },
+        {
+          "commands": ["npx changeset"],
+          "description": {
+            "fr": "📝 Lancer changeset - obligatoire avant chaque PR qui modifie un package",
+            "en": "📝 Run changeset - required before every PR that modifies a package"
+          }
+        },
+        {
+          "commands": ["npm run lint", "npm run test", "npm run build"],
+          "description": {
+            "fr": "✅ Checklist pré-PR - lint + tests + build doivent tous passer",
+            "en": "✅ Pre-PR checklist - lint + tests + build must all pass"
+          }
+        },
+        {
+          "url": "slack://channel?team=T123FLINK&id=C456REVIEWS",
+          "description": {
+            "fr": "💬 Ouvrir le channel #code-reviews sur Slack pour demander une review",
+            "en": "💬 Open the #code-reviews Slack channel to request a review"
+          }
+        },
+        {
+          "url": "https://notion.flink.io/pr-checklist",
+          "description": {
+            "fr": "🗒️ Checklist PR complète dans Notion (accessibilité, perf, tests E2E)",
+            "en": "🗒️ Full PR checklist in Notion (accessibility, performance, E2E tests)"
+          }
+        }
+      ]
+    }
+  ]
+}

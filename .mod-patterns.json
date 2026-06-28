@@ -1,138 +1,118 @@
 {
-  "variables": {
-    "COMPONENTS_DIR": "src/components",
-    "ATOMS_DIR": "src/components/atoms",
-    "MOLECULES_DIR": "src/components/molecules",
-    "ORGANISMS_DIR": "src/components/organisms",
-    "PROVIDERS_DIR": "src/components/providers",
-    "APP_DIR": "src/app",
-    "TYPES_FILE": "src/types/index.ts"
-  },
+  "imports": [
+    ".mod-patterns/onboarding-contribution.json",
+    ".mod-patterns/commands.json",
+    ".mod-patterns/git-triggers.json",
+    ".mod-patterns/education-patterns.json"
+  ],
   "patterns": [
     {
-      "onManual": "rundev",
-      "manualTitle": "🚀 Run dev",
+      "id": "onboarding-tour",
+      "onManual": "flinkTourDuCode",
+      "manualTitle": "🗺️ Flink: Tour du code / Code Tour",
+      "description": {
+        "fr": "Découverte guidée de l'architecture et des conventions du projet.",
+        "en": "Guided tour of the project architecture and conventions."
+      },
       "notify": [
         {
-          "commands": ["pnpm run dev"],
-          "description": "🚀 Run dev"
+          "file": "CONVENTIONS.md",
+          "description": {
+            "fr": "📐 Lire les conventions du projet (nommage, structure, règles)",
+            "en": "📐 Read the project conventions (naming, structure, rules)"
+          }
+        },
+        {
+          "folder": "src/components/",
+          "description": {
+            "fr": "🧩 Explorer le dossier des composants - tous les composants UI sont ici",
+            "en": "🧩 Explore the components folder - all UI components live here"
+          }
+        },
+        {
+          "file": "src/components/Button/Button.tsx",
+          "description": {
+            "fr": "👀 Exemple de composant - remarque la structure : props typées, export nommé",
+            "en": "👀 Component example - notice the structure: typed props, named export"
+          }
+        },
+        {
+          "file": "src/components/Button/Button.stories.tsx",
+          "description": {
+            "fr": "📖 Exemple de Story Storybook associée au composant",
+            "en": "📖 Storybook story example associated with the component"
+          }
+        },
+        {
+          "file": "src/components/Button/Button.test.tsx",
+          "description": {
+            "fr": "🧪 Exemple de test unitaire - chaque composant a son fichier .test.tsx",
+            "en": "🧪 Unit test example - every component has its own .test.tsx file"
+          }
+        },
+        {
+          "file": "src/components/Button/index.ts",
+          "description": {
+            "fr": "📦 Barrel export - chaque composant expose ses exports via index.ts",
+            "en": "📦 Barrel export - every component exposes its exports through index.ts"
+          }
+        },
+        {
+          "folder": "src/features/",
+          "description": {
+            "fr": "🏗️ Architecture feature-based - chaque feature est un module autonome",
+            "en": "🏗️ Feature-based architecture - each feature is a self-contained module"
+          }
+        },
+        {
+          "folder": "src/hooks/",
+          "description": {
+            "fr": "🪝 Hooks custom - tous préfixés 'use', un hook = une responsabilité",
+            "en": "🪝 Custom hooks - all prefixed with 'use', one hook = one responsibility"
+          }
+        },
+        {
+          "file": "src/hooks/useAuth.ts",
+          "description": {
+            "fr": "👀 Exemple de hook - voir comment on gère les side effects et les types",
+            "en": "👀 Hook example - see how side effects and types are handled"
+          }
+        },
+        {
+          "folder": "src/services/",
+          "description": {
+            "fr": "🔌 Services API - toutes les calls HTTP passent par ici, jamais dans les composants",
+            "en": "🔌 API services - all HTTP calls go through here, never inside components"
+          }
+        },
+        {
+          "url": "https://notion.flink.io/architecture",
+          "description": {
+            "fr": "🗂️ Ouvrir le schéma d'architecture complet dans Notion",
+            "en": "🗂️ Open the full architecture diagram in Notion"
+          }
         }
       ],
-      "description": "🚀 Run dev"
+      "triggerNext": "onboarding-transition-2"
     },
     {
-      "id": "atom-created",
-      "onCreateFile": "src/components/atoms/**/*.{tsx,ts}",
+      "id": "onboarding-transition-2",
+      "onTrigger": true,
+      "description": {
+        "fr": "✅ Tour du code terminé ! Une dernière étape avant de coder.",
+        "en": "✅ Code tour complete! One last step before you start coding."
+      },
       "notify": [
-        {
-          "file": "src/components/index.ts",
-          "description": "📦 Export atom {{TRIGGER_NAME}} in main export"
-        },
         {
           "commands": [
-            "npx jest src/components/atoms/{{TRIGGER_NAME}}.test.tsx"
+            "echo '👉 Ctrl+Shift+P → Flink: Workflow de contribution / Flink: Contribution Workflow'"
           ],
-          "description": "🧪 Create test file"
+          "description": {
+            "fr": "▶️ Lance la commande manuelle 'Flink: Workflow de contribution' pour la Phase 3",
+            "en": "▶️ Run the manual command 'Flink: Contribution Workflow' to move to Phase 3"
+          }
         }
-      ],
-      "description": "⚛️ New atom {{TRIGGER_NAME}} created",
-      "showInlineHint": true
-    },
-    {
-      "id": "molecule-created",
-      "onCreateFile": "src/components/molecules/**/*.{tsx,ts}",
-      "notify": [
-        {
-          "file": "src/components/index.ts",
-          "description": "📦 Export molecule {{TRIGGER_NAME}} in main export"
-        }
-      ],
-      "description": "🧬 New molecule {{TRIGGER_NAME}} created",
-      "showInlineHint": true
-    },
-    {
-      "id": "organism-created",
-      "onCreateFile": "src/components/organisms/**/*.{tsx,ts}",
-      "notify": [
-        {
-          "file": "src/components/index.ts",
-          "description": "📦 Export organism {{TRIGGER_NAME}} in main export"
-        }
-      ],
-      "description": "🦠 New organism {{TRIGGER_NAME}} created",
-      "showInlineHint": true
-    },
-    {
-      "id": "provider-created",
-      "onCreateFile": "src/components/providers/**/*.{tsx,ts}",
-      "notify": [
-        {
-          "file": "src/components/providers/index.ts",
-          "description": "📦 Add export for provider {{TRIGGER_NAME}}"
-        },
-        {
-          "file": "src/components/index.ts",
-          "description": "📦 Export provider {{TRIGGER_NAME}} in main export"
-        }
-      ],
-      "description": "🔌 New provider {{TRIGGER_NAME}} created",
-      "showInlineHint": true
-    },
-    {
-      "id": "component-modified",
-      "onChange": "src/components/**/*.tsx",
-      "notify": [
-        {
-          "file": "src/components/index.ts",
-          "description": "📦 Verify that {{TRIGGER_NAME}} is exported in the hierarchy"
-        }
-      ],
-      "description": "🔧 Component {{TRIGGER_NAME}} modified",
-      "showInlineHint": false
-    },
-    {
-      "id": "layout-modified",
-      "onChange": "src/app/layout.tsx",
-      "notify": [
-        {
-          "file": "src/app/globals.css",
-          "description": "🎨 Check global CSS variables"
-        },
-        {
-          "file": "tailwind.config.ts",
-          "description": "⚙️ Sync Tailwind configuration"
-        }
-      ],
-      "description": "📐 Layout modified - check styles",
-      "showInlineHint": true
-    },
-    {
-      "id": "globals-css-modified",
-      "onChange": "src/app/globals.css",
-      "notify": [
-        {
-          "file": "tailwind.config.ts",
-          "description": "🔄 Sync CSS variables with Tailwind"
-        }
-      ],
-      "description": "🎨 Global CSS variables modified",
-      "showInlineHint": true
-    },
-    {
-      "id": "tailwind-config-modified",
-      "onChange": "tailwind.config.ts",
-      "notify": [
-        {
-          "file": "src/app/globals.css",
-          "description": "🎨 Verify that CSS variables match"
-        },
-        {
-          "commands": ["pnpm run build"],
-          "description": "🔨 Test build after config modification"
-        }
-      ],
-      "description": "⚙️ Tailwind configuration modified",
-      "showInlineHint": true
+      ]
     }
   ]
 }

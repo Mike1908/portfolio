@@ -3,6 +3,7 @@ import {
   HeroSection,
   AboutSection,
   ExperienceSection,
+  EducationSection,
   ProjectsSection,
   SkillsSection,
   ContactSection,
@@ -13,6 +14,7 @@ import {
   badges,
   aboutStats,
   experiences,
+  education,
   projects,
   skillGroups,
   contactLinks,
@@ -40,6 +42,11 @@ export default function Home() {
       <ExperienceSection
         title="Expérience professionnelle"
         experiences={experiences}
+      />
+
+      <EducationSection
+        title="Formation & Certifications"
+        education={education}
       />
 
       <ProjectsSection title="Projets sélectionnés" projects={projects} />

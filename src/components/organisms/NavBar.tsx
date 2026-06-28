@@ -3,6 +3,7 @@
 import { Logo } from "../atoms/Logo";
 import { NavLink as NavLinkAtom, type NavLinkProps } from "../atoms/NavLink";
 import { ThemeToggle } from "../molecules/ThemeToggle";
+import { MobileMenu } from "../molecules/MobileMenu";
 
 export type NavBarProps = {
   readonly links: NavLinkProps[];
@@ -39,9 +40,9 @@ export const NavBar = ({ links, logoText, logoHref = "/" }: NavBarProps) => {
               <Logo text={logoText} href={logoHref} />
             </div>
 
-            {/* Navigation Links */}
-            <div className="flex flex-1 items-center justify-center gap-1 sm:justify-end sm:gap-2 lg:gap-4">
-              <ul className="flex items-center gap-1 sm:gap-2 lg:gap-4">
+            {/* Navigation Desktop - cachée sur mobile */}
+            <div className="hidden flex-1 items-center justify-end gap-2 lg:flex lg:gap-4">
+              <ul className="flex items-center gap-2 lg:gap-4">
                 {links.map((link) => (
                   <li key={link.href}>
                     <NavLinkAtom {...link} />
@@ -49,11 +50,14 @@ export const NavBar = ({ links, logoText, logoHref = "/" }: NavBarProps) => {
                 ))}
               </ul>
 
-              {/* Theme Toggle */}
-              <div className="ml-2 flex items-center lg:ml-4">
+              {/* Theme Toggle Desktop */}
+              <div className="ml-4 flex items-center">
                 <ThemeToggle />
               </div>
             </div>
+
+            {/* Menu Mobile */}
+            <MobileMenu links={links} />
           </nav>
         </div>
       </header>

@@ -1,0 +1,84 @@
+{
+  "patterns": [
+    {
+      "id": "education-item-created",
+      "onCreateFile": "src/components/molecules/EducationItem.tsx",
+      "notify": [
+        {
+          "file": "src/components/index.ts",
+          "description": "📦 Ajouter l'export pour EducationItem"
+        },
+        {
+          "file": "src/data/portfolio.ts",
+          "description": "📘 Importer le type Education si nécessaire"
+        }
+      ],
+      "description": "🆕 Nouveau composant EducationItem créé",
+      "showInlineHint": true
+    },
+    {
+      "id": "education-section-created",
+      "onCreateFile": "src/components/organisms/EducationSection.tsx",
+      "notify": [
+        {
+          "file": "src/components/index.ts",
+          "description": "📦 Ajouter l'export pour EducationSection"
+        },
+        {
+          "file": "src/app/page.tsx",
+          "description": "🏗️ Intégrer EducationSection dans la page principale"
+        },
+        {
+          "file": "src/data/portfolio.ts",
+          "description": "📊 Ajouter les données d'éducation dans portfolio.ts"
+        }
+      ],
+      "description": "🆕 Nouvelle section EducationSection créée",
+      "showInlineHint": true
+    },
+    {
+      "id": "education-data-modified",
+      "onChange": "src/data/portfolio.ts",
+      "notify": [
+        {
+          "file": "src/components/molecules/EducationItem.tsx",
+          "description": "🔍 Vérifier que le type Education correspond aux données"
+        },
+        {
+          "file": "src/app/page.tsx",
+          "description": "🔍 Vérifier que les données sont passées correctement à EducationSection"
+        }
+      ],
+      "description": "📝 Données de portfolio modifiées",
+      "showInlineHint": false
+    },
+    {
+      "id": "new-molecule-component",
+      "onCreateFile": "src/components/molecules/*.tsx",
+      "notify": [
+        {
+          "file": "src/components/index.ts",
+          "description": "📦 Ajouter l'export dans index.ts"
+        }
+      ],
+      "description": "🆕 Nouveau composant molecule créé",
+      "showInlineHint": true
+    },
+    {
+      "id": "new-organism-component",
+      "onCreateFile": "src/components/organisms/*.tsx",
+      "notify": [
+        {
+          "file": "src/components/index.ts",
+          "description": "📦 Ajouter l'export dans index.ts"
+        },
+        {
+          "file": "src/app/page.tsx",
+          "description": "🏗️ Intégrer le composant dans la page si nécessaire"
+        }
+      ],
+      "description": "🆕 Nouveau composant organism créé",
+      "showInlineHint": true
+    }
+  ]
+}

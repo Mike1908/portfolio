@@ -1,0 +1,123 @@
+{
+  "patterns": [
+    {
+      "id": "git-branch-naming",
+      "onBranchCreate": {
+        "name": "*"
+      },
+      "description": {
+        "fr": "🌿 Nouvelle branche créée - vérifie la convention de nommage",
+        "en": "🌿 New branch created - check the naming convention"
+      },
+      "notify": [
+        {
+          "commands": [
+            "echo 'Format: feature/FLINK-{id}-{description} or fix/FLINK-{id}-{description}'"
+          ],
+          "description": {
+            "fr": "🌿 Vérifie que ta branche suit la convention - ex: feature/FLINK-142-add-login-page",
+            "en": "🌿 Make sure your branch follows the convention - e.g: feature/FLINK-142-add-login-page"
+          }
+        },
+        {
+          "url": "https://notion.flink.io/branch-naming",
+          "description": {
+            "fr": "📖 Consulter les règles de nommage des branches",
+            "en": "📖 Read the branch naming rules"
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "git-commit-convention",
+      "onCommit": {},
+      "description": {
+        "fr": "✍️ Commit effectué - vérification convention + changeset",
+        "en": "✍️ Commit made - check convention + changeset"
+      },
+      "notify": [
+        {
+          "commands": [
+            "echo 'Format: type(scope): message | e.g: feat(auth): add logout button'"
+          ],
+          "description": {
+            "fr": "✍️ Ton commit suit-il la convention ? type(scope): message",
+            "en": "✍️ Does your commit follow the convention? type(scope): message"
+          }
+        },
+        {
+          "commands": ["npx changeset status"],
+          "description": {
+            "fr": "📝 Vérifier si un changeset est nécessaire pour cette modification",
+            "en": "📝 Check if a changeset is needed for this change"
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "git-main-protection",
+      "onBranchSwitch": {
+        "to": "main"
+      },
+      "description": {
+        "fr": "⚠️ Switch sur main détecté - rappel de protection",
+        "en": "⚠️ Switched to main - protection reminder"
+      },
+      "notify": [
+        {
+          "commands": [
+            "echo '⚠️  You are on main! Never commit directly here.'"
+          ],
+          "description": {
+            "fr": "⚠️ ATTENTION - Tu es sur la branche main, crée une feature branch",
+            "en": "⚠️ WARNING - You are on the main branch, please create a feature branch"
+          }
+        },
+        {
+          "commands": ["git switch -c feature/FLINK-{id}-{description}"],
+          "description": {
+            "fr": "🌿 Créer immédiatement une nouvelle branche depuis main",
+            "en": "🌿 Immediately create a new branch from main"
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "git-pr-ready",
+      "onBranchSwitch": {
+        "from": "feature/*",
+        "to": "main"
+      },
+      "description": {
+        "fr": "🚀 Retour sur main depuis une feature - checklist PR finale",
+        "en": "🚀 Back on main from a feature branch - final PR checklist"
+      },
+      "notify": [
+        {
+          "commands": ["npm run lint", "npm run test", "npm run build"],
+          "description": {
+            "fr": "✅ Lancer la checklist complète avant d'ouvrir la PR",
+            "en": "✅ Run the full checklist before opening the PR"
+          }
+        },
+        {
+          "commands": ["npx changeset"],
+          "description": {
+            "fr": "📝 Créer le changeset si ce n'est pas encore fait",
+            "en": "📝 Create the changeset if not done yet"
+          }
+        },
+        {
+          "url": "https://github.com/flink-io/flink-app/compare",
+          "description": {
+            "fr": "🚀 Ouvrir la PR sur GitHub",
+            "en": "🚀 Open the PR on GitHub"
+          }
+        }
+      ]
+    }
+  ]
+}

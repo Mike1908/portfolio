@@ -1,12 +1,15 @@
 import type { BadgeData } from "@/components/organisms/HeroSection";
 import type { Stat } from "@/components/organisms/AboutSection";
 import type { Experience } from "@/components/molecules/ExperienceItem";
+
 import type { Project } from "@/components/molecules/ProjectCard";
 import type { SkillGroup } from "@/components/organisms/SkillsSection";
+import { Education } from "@/components/molecules/EducationItem";
 
 export const navLinks = [
   { label: "À propos", href: "#about" },
   { label: "Expérience", href: "#experience" },
+  { label: "Formation", href: "#education" },
   { label: "Projets", href: "#projects" },
   { label: "Compétences", href: "#skills" },
   { label: "Contact", href: "#contact" },
@@ -104,6 +107,45 @@ export const experiences: Experience[] = [
     description:
       "Développement d'un site interne de collaboration d'équipe au sein d'une équipe Agile/Scrum. Contribution à la construction d'une bibliothèque de composants réutilisables avec Material UI, documentée via Storybook et conçue pour être partagée à travers les différents sites de la marque.",
     tags: ["React", "Material UI", "Storybook", "Agile/Scrum"],
+  },
+];
+
+export const education: Education[] = [
+  {
+    institution: "Anthropic Academy",
+    degree: "Claude 101",
+    location: "En ligne",
+    period: "Juin 2026",
+    description:
+      "Certification professionnelle démontrant la maîtrise des fondamentaux de Claude AI et des meilleures pratiques d'intégration des LLMs dans des applications modernes.",
+    type: "certification",
+  },
+  {
+    institution: "Académie Alithya",
+    degree: "Formation intensive",
+    location: "Montréal, Qc, Canada",
+    period: "Mars 2023",
+    description:
+      "Programme intensif de formation en développement logiciel avec focus sur les technologies modernes et les pratiques de l'industrie.",
+    type: "formation",
+  },
+  {
+    institution: "Université de Montréal",
+    degree: "Baccalauréat en informatique",
+    location: "Montréal, QC, Canada",
+    period: "2021",
+    description:
+      "Diplôme universitaire en informatique avec une formation complète en programmation, structures de données, algorithmes et génie logiciel.",
+    type: "diplome",
+  },
+  {
+    institution: "Université de Montréal",
+    degree: "Année préparatoire en arts et sciences",
+    location: "Montréal, QC, Canada",
+    period: "2017",
+    description:
+      "Programme préparatoire multidisciplinaire pour développer les compétences fondamentales avant d'entreprendre des études universitaires spécialisées.",
+    type: "diplome",
   },
 ];
 
